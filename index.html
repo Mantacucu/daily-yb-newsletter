@@ -1,0 +1,1154 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>YB日报 | YB Daily Report</title>
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  :root {
+    --paper: #ffffff;
+    --ink: #111111;
+    --gray: #6b6b6b;
+    --light: #e0e0e0;
+    --accent: #c41e3a;
+    --serif: 'Georgia', 'Times New Roman', serif;
+    --sans: -apple-system, BlinkMacSystemFont, 'SF Pro Text', sans-serif;
+  }
+  body {
+    font-family: var(--sans);
+    background: var(--paper);
+    color: var(--ink);
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+  }
+  .masthead {
+    text-align: center;
+    padding: 48px 24px 24px;
+    border-bottom: 3px double var(--ink);
+  }
+  .masthead-logo {
+    font-family: var(--serif);
+    font-size: 42px;
+    font-weight: 700;
+    letter-spacing: -1px;
+    text-transform: uppercase;
+  }
+  .masthead-line {
+    width: 60px;
+    height: 1px;
+    background: var(--ink);
+    margin: 16px auto;
+  }
+  .masthead-date {
+    font-size: 12px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--gray);
+  }
+  .nav {
+    display: flex;
+    justify-content: center;
+    gap: 0;
+    border-bottom: 1px solid var(--light);
+    background: var(--paper);
+    position: sticky;
+    top: 0;
+    z-index: 50;
+  }
+  .nav a {
+    padding: 14px 24px;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--gray);
+    text-decoration: none;
+    border-bottom: 2px solid transparent;
+    transition: all 0.2s;
+  }
+  .nav a:hover { color: var(--ink); }
+  .nav a.active {
+    color: var(--ink);
+    border-bottom-color: var(--accent);
+  }
+  main {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 48px 32px 120px;
+  }
+  .section {
+    margin-bottom: 80px;
+    padding-bottom: 48px;
+    border-bottom: 1px solid var(--light);
+  }
+  .section:last-child { border-bottom: none; }
+  .section-head {
+    text-align: center;
+    margin-bottom: 40px;
+  }
+  .section-head h2 {
+    font-family: var(--serif);
+    font-size: 28px;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+  }
+  .section-head .en {
+    font-size: 13px;
+    color: var(--gray);
+    margin-top: 8px;
+    font-style: italic;
+  }
+
+  /* Pick card */
+  .pick {
+    background: #f8f8f8;
+    padding: 32px;
+    margin-bottom: 40px;
+    position: relative;
+  }
+  .pick::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 4px; height: 100%;
+    background: var(--accent);
+  }
+  .pick-label {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 12px;
+  }
+  .pick h3 {
+    font-family: var(--serif);
+    font-size: 22px;
+    font-weight: 700;
+    line-height: 1.3;
+    margin-bottom: 4px;
+  }
+  .pick .subtitle {
+    font-size: 13px;
+    color: var(--gray);
+    font-style: italic;
+    margin-bottom: 16px;
+  }
+  .pick .body-en {
+    font-size: 15px;
+    line-height: 1.7;
+    margin-bottom: 8px;
+  }
+  .pick .body-cn {
+    font-size: 14px;
+    color: var(--gray);
+    line-height: 1.7;
+    margin-bottom: 16px;
+  }
+  .pick a {
+    font-size: 13px;
+    color: var(--accent);
+    text-decoration: none;
+    font-weight: 500;
+  }
+  .pick a:hover { text-decoration: underline; }
+
+  /* Unified bullets */
+  .bullet-list {
+    list-style: none;
+    margin-top: 16px;
+  }
+  .bullet-list li {
+    padding: 6px 0 6px 18px;
+    position: relative;
+    font-size: 14px;
+    line-height: 1.7;
+  }
+  .bullet-list li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 13px;
+    width: 5px;
+    height: 5px;
+    background: var(--ink);
+    border-radius: 50%;
+  }
+
+  /* Article */
+  .article {
+    margin-bottom: 48px;
+  }
+  .article-tag {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--gray);
+    margin-bottom: 8px;
+  }
+  .article h3 {
+    font-family: var(--serif);
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 1.3;
+    margin-bottom: 4px;
+  }
+  .article .subtitle {
+    font-size: 13px;
+    color: var(--gray);
+    font-style: italic;
+    margin-bottom: 16px;
+  }
+  .article .body-en {
+    font-size: 15px;
+    line-height: 1.7;
+    margin-bottom: 8px;
+  }
+  .article .body-cn {
+    font-size: 14px;
+    color: var(--gray);
+    line-height: 1.7;
+    margin-bottom: 16px;
+  }
+  .article-link {
+    font-size: 13px;
+    color: var(--accent);
+    text-decoration: none;
+    font-weight: 500;
+  }
+  .article-link:hover { text-decoration: underline; }
+
+  /* Insight */
+  .insight {
+    margin-top: 20px;
+    padding: 20px;
+    background: #fafafa;
+    border: 1px solid var(--light);
+  }
+  .insight h5 {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 8px;
+  }
+  .insight .en { font-size: 14px; line-height: 1.7; margin-bottom: 6px; }
+  .insight .cn { font-size: 13px; color: var(--gray); line-height: 1.6; }
+
+  /* Channel grid */
+  .channel-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+  .channel-item {
+    padding: 16px 0;
+    border-bottom: 1px solid var(--light);
+  }
+  .channel-item h4 {
+    font-family: var(--serif);
+    font-size: 15px;
+    font-weight: 700;
+    margin-bottom: 4px;
+  }
+  .channel-item .en-desc {
+    font-size: 13px;
+    line-height: 1.5;
+    margin-bottom: 2px;
+  }
+  .channel-item .cn-desc {
+    font-size: 12px;
+    color: var(--gray);
+    line-height: 1.5;
+    margin-bottom: 4px;
+  }
+  .channel-item a {
+    font-size: 12px;
+    color: var(--accent);
+    text-decoration: none;
+  }
+
+  /* Study */
+  .study-intro {
+    font-size: 15px;
+    line-height: 1.8;
+    margin-bottom: 32px;
+    padding: 24px;
+    border-left: 3px solid var(--accent);
+    background: #fafafa;
+  }
+  .study-intro .en { margin-bottom: 8px; }
+  .study-intro .cn { color: var(--gray); font-size: 14px; }
+  .study-card {
+    margin-bottom: 48px;
+    padding-bottom: 32px;
+    border-bottom: 1px solid var(--light);
+  }
+  .study-card:last-child { border-bottom: none; }
+  .study-card h4 {
+    font-family: var(--serif);
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 4px;
+  }
+  .study-card .en-title {
+    font-size: 13px;
+    color: var(--gray);
+    font-style: italic;
+    margin-bottom: 16px;
+  }
+  .platform-tag {
+    display: inline-block;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding: 4px 12px;
+    background: var(--ink);
+    color: #fff;
+    margin-bottom: 16px;
+  }
+  .study-section {
+    margin-bottom: 20px;
+  }
+  .study-section h5 {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--gray);
+    margin-bottom: 10px;
+  }
+  .study-section .bullet-list li {
+    font-size: 14px;
+  }
+  .video-rec {
+    margin-top: 16px;
+    padding: 16px;
+    background: #f5f5f5;
+    border-radius: 4px;
+  }
+  .video-rec h6 {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 10px;
+  }
+  .video-rec-item {
+    margin-bottom: 10px;
+  }
+  .video-rec-item a {
+    font-size: 14px;
+    color: var(--accent);
+    text-decoration: none;
+    font-weight: 500;
+  }
+  .video-rec-item a:hover { text-decoration: underline; }
+  .video-rec-item p {
+    font-size: 12px;
+    color: var(--gray);
+    margin-top: 2px;
+  }
+
+  /* Note button */
+  .note-btn {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: var(--ink);
+    color: #fff;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* Modal */
+  .modal-overlay {
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0,0,0,0.3);
+    z-index: 200;
+    display: none;
+    align-items: center;
+    justify-content: center;
+  }
+  .modal-overlay.open { display: flex; }
+  .modal {
+    background: var(--paper);
+    width: 560px;
+    height: 500px;
+    border: 1px solid var(--light);
+    display: flex;
+    flex-direction: column;
+  }
+  .modal-header {
+    padding: 14px 20px;
+    border-bottom: 1px solid var(--light);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: var(--ink);
+    color: #fff;
+    cursor: grab;
+  }
+  .modal-header:active { cursor: grabbing; }
+  .modal-header h3 {
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+  .modal-close {
+    background: none;
+    border: none;
+    font-size: 18px;
+    color: #fff;
+    cursor: pointer;
+  }
+  .modal-body {
+    padding: 20px;
+    overflow-y: auto;
+    flex: 1;
+  }
+  .modal-body textarea {
+    width: 100%;
+    min-height: 160px;
+    border: 1px solid var(--light);
+    padding: 12px;
+    font-size: 14px;
+    font-family: inherit;
+    resize: vertical;
+    outline: none;
+  }
+  .modal-body textarea:focus { border-color: var(--accent); }
+  .modal-footer {
+    padding: 12px 20px;
+    border-top: 1px solid var(--light);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .modal-footer .hint {
+    font-size: 11px;
+    color: var(--gray);
+  }
+  .modal-footer button {
+    padding: 8px 20px;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    border: none;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+  .btn-primary {
+    background: var(--ink);
+    color: #fff;
+  }
+
+  .archive-footer {
+    text-align: center;
+    padding: 40px 0;
+    font-size: 12px;
+    color: var(--gray);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+  .archive-footer a {
+    color: var(--accent);
+    text-decoration: none;
+  }
+
+  @media (max-width: 768px) {
+    .masthead-logo { font-size: 28px; }
+    main { padding: 24px 20px 80px; }
+    .channel-grid { grid-template-columns: 1fr; }
+    .modal { width: 90%; height: 60vh; }
+  }
+</style>
+</head>
+<body>
+
+<header class="masthead">
+  <div class="masthead-logo">YB日报</div>
+  <div class="masthead-line"></div>
+  <div class="masthead-date" id="date"></div>
+</header>
+
+<nav class="nav">
+  <a href="#featured" class="active">精选 Pick</a>
+  <a href="#marketing">营销 MKT</a>
+  <a href="#design">设计 Design</a>
+  <a href="#ai">AI Coding</a>
+  <a href="#growth">成长 Growth</a>
+  <a href="#study">学习 Study</a>
+</nav>
+
+<main>
+
+<!-- ===== TODAY'S PICK ===== -->
+<div class="section" id="featured">
+  <div class="section-head">
+    <h2>今日精选</h2>
+    <div class="en">Editor's Pick</div>
+  </div>
+
+  <div class="pick">
+    <div class="pick-label">Editor's Pick</div>
+    <h3>Kallaway: You are not the niche — 定位思维的根本性转变</h3>
+    <div class="subtitle">You are not the niche</div>
+
+    <p class="body-en">
+      Kallaway breaks the traditional "find your niche" mindset. Creators shouldn't be defined by a label — they should grow a unique positioning through consistent output. He shares his real-world experiment of scaling an Instagram account from 0 to 10K followers, proving that data-driven content experiments outperform pre-planned labels.
+    </p>
+    <p class="body-cn">
+      Kallaway在其最新视频中颠覆了传统的"找niche"思维，提出创作者不应被标签定义，而应通过持续输出自然生长出独特定位。他结合自己的Instagram从0到10K的实战经历，展示了如何通过数据驱动的内容实验而非预设标签来找到真正有效的方向。
+    </p>
+    <a href="https://www.youtube.com/watch?v=yT-5B1tLiuw" target="_blank">Watch on YouTube</a>
+
+    <ul class="bullet-list">
+      <li><strong>You are not your niche / 你不是你的niche</strong> — Don't define yourself with a label. Let your audience define you through consistent output. / 不要用一个标签定义自己，通过持续输出让受众自然定义你。</li>
+      <li><strong>Data-driven positioning / 数据驱动的定位</strong> — Analyze engagement data from your first 50 posts to find what truly resonates, not what you guess. / 分析前50条内容的互动数据，找到真正 resonates 的话题而非臆测。</li>
+      <li><strong>Speed over perfection / 速度比完美重要</strong> — The 0 to 10K experiment proves high-frequency posting + rapid iteration beats careful planning. / Instagram从0到10K的实验证明，高频发布+快速迭代胜过精心策划。</li>
+      <li><strong>3 signals your channel is "cooked" / 频道失效的3个信号</strong> — Engagement rate keeps dropping, comments become generic, shares hit zero. / 互动率持续下降、评论区空泛、转发数归零。</li>
+      <li><strong>Virality is not the goal / 爆款不是目标</strong> — One-hit viral traffic is less valuable than steady growth of a loyal audience. / 爆款内容带来的一次性流量不如稳定增长的忠实受众有价值。</li>
+    </ul>
+
+    <div class="insight">
+      <h5>延伸思考 Extended Thought</h5>
+      <p class="en">When AI-generated content floods every platform, a real creator's competitive advantage is no longer "finding the perfect niche" but "consistently being real." Kallaway's data-driven methodology offers a replicable experimentation framework — treat creation as science, not art.</p>
+      <p class="cn">当AI生成内容淹没所有平台，真人创作者的核心竞争力不再是"找到完美定位"，而是"持续真实输出"。Kallaway的数据驱动方法论提供了一套可复制的实验框架——把创作当成科学实验，而非艺术创作。</p>
+    </div>
+  </div>
+</div>
+
+<!-- ===== MARKETING ===== -->
+<div class="section" id="marketing">
+  <div class="section-head">
+    <h2>营销</h2>
+    <div class="en">Marketing & Growth</div>
+  </div>
+
+  <div class="article">
+    <div class="article-tag">Marketing Growth</div>
+    <h3>Kallaway: Why most creators stay broke</h3>
+    <div class="subtitle">创作者变现盲区</div>
+    <p class="body-en">
+      Most creators get stuck in the "audience growth" phase and ignore the critical "trust monetization" conversion. Kallaway breaks down the three-layer content monetization funnel: Attention -> Trust -> Transaction. Most creators only do the first layer. He introduces the "Audience-first product" model: build the audience first, then develop products based on their needs, not the reverse.
+    </p>
+    <p class="body-cn">
+      大多数创作者停滞在"观众增长"阶段，忽略了"信任货币化"的关键转化。Kallaway拆解了内容变现的三层漏斗：注意力 -> 信任 -> 交易，多数人只做了第一层。他提出"Audience-first product"模式：先建受众，再根据需求开发产品，而非反向操作。
+    </p>
+    <ul class="bullet-list">
+      <li>3-layer funnel: Attention -> Trust -> Transaction / 三层漏斗：注意力 -> 信任 -> 交易</li>
+      <li>"Audience-first product" model / "受众优先产品"模式</li>
+      <li>Platform algorithms favor retention content, not one-hit virals / 平台算法偏爱留存型内容</li>
+      <li>Monthly "content audit": review data, kill low-engagement topics, double down on winners / 月度"内容审计"</li>
+      <li>The hidden skill that turns views into dollars / 将浏览量转化为收入的关键技能</li>
+    </ul>
+    <a href="https://www.youtube.com/watch?v=0i6Wb1m2xLE" class="article-link" target="_blank">Watch on YouTube</a>
+  </div>
+
+  <div class="article">
+    <div class="article-tag">Brand Strategy</div>
+    <h3>Alex Garcia: 0 to 200K newsletter subscribers</h3>
+    <div class="subtitle">Newsletter增长实战</div>
+    <p class="body-en">
+      Alex Garcia's core growth strategy: "50 threads in 50 days" — a high-density content sprint that took him from 500 followers to 40K. He uses the "Snackable vs Entrees" strategy: social platforms get "snacks" (teasers), owned platforms get "entrees" (full content). A unique cross-promotion with Pat Walls brought 80K views and 5-10K newsletter subscribers.
+    </p>
+    <p class="body-cn">
+      Alex Garcia的核心增长策略："50 threads in 50 days"——高密度内容冲刺，从500 followers增长到40K。他采用"Snackable vs Entrees"策略：社交平台发"零食"（teaser），自有平台发"正餐"（完整内容）。与Pat Walls的互推视频获得80K观看，带来5-10K newsletter订阅者。
+    </p>
+    <ul class="bullet-list">
+      <li>50 threads in 50 days: from 500 to 40K followers / 50天50条thread，从500到40K</li>
+      <li>"Snackable vs Entrees" content strategy / "零食vs正餐"内容策略</li>
+      <li>Clever welcome email design: ask for replies + social proof + personal story / 精妙欢迎邮件设计</li>
+      <li>$65-75K monthly sponsorship revenue / 每月6.5-7.5万美元赞助收入</li>
+      <li>Vertical depth content outperforms broad traffic / 垂直深度内容比泛流量更具商业价值</li>
+    </ul>
+    <a href="https://www.linkedin.com/in/alex-garcia-marketing/" class="article-link" target="_blank">View Profile</a>
+  </div>
+</div>
+
+<!-- ===== DESIGN ===== -->
+<div class="section" id="design">
+  <div class="section-head">
+    <h2>设计</h2>
+    <div class="en">Design & Creativity</div>
+  </div>
+
+  <div class="pick">
+    <div class="pick-label">Section Pick</div>
+    <h3>Satori Graphics: 2026 Design Trends</h3>
+    <div class="subtitle">从AI策展人到视觉战略师</div>
+    <p class="body-en">
+      The designer's role is shifting from "executor" to "AI curator." As AI tools become more capable, the focus shifts from "how to draw" to "what to draw" and "why." Key trends: Glassmorphism returns with Apple Liquid Glass, Machine Experience (MX) Design for AI systems, and "Punk Grunge" as rebellion against AI perfectionism.
+    </p>
+    <p class="body-cn">
+      设计师角色正在从"执行者"转向"AI策展人"。随着AI工具能力增强，重点从"怎么画"变为"画什么"和"为什么画"。关键趋势：Apple Liquid Glass引领Glassmorphism回归、为AI系统的Machine Experience (MX) Design、以及对AI完美主义的"Punk Grunge"反叛美学。
+    </p>
+    <a href="https://www.youtube.com/@SatoriGraphics" target="_blank">Watch on YouTube</a>
+  </div>
+
+  <div class="article">
+    <div class="article-tag">Design Trends</div>
+    <h3>2026 Design Trends — From AI Curator to Visual Strategist</h3>
+    <div class="subtitle">2026年设计趋势</div>
+    <p class="body-en">
+      73% of designers in a recent survey identified AI collaboration as the trend with the most impact in 2026. The biggest shift: AI is now a producer, not just a tool. Generative UI builds interfaces on the fly from text prompts. "Digital Nature" color palettes combine neon greens with earth tones. Trust design becomes critical as users question authenticity in an AI-flooded world.
+    </p>
+    <p class="body-cn">
+      73%的设计师认为AI协作是2026年最具影响力的趋势。最大的转变：AI现在是生产者，不只是工具。生成式UI根据文本提示即时构建界面。"数字自然"配色将荧光绿与大地色结合。在AI泛滥的世界中，信任设计变得至关重要。
+    </p>
+    <ul class="bullet-list">
+      <li>Role shift: Executor to AI Curator / 角色转变：执行者到AI策展人</li>
+      <li>Generative UI & AI co-pilots become baseline / 生成式UI成为基线</li>
+      <li>Glassmorphism returns: Apple Liquid Glass / Glassmorphism回归</li>
+      <li>Machine Experience (MX) Design for AI systems / 为AI系统的MX设计</li>
+      <li>"Punk Grunge" as anti-AI perfectionism / "Punk Grunge"反叛AI完美主义</li>
+      <li>Tools: Google Stitch, Motiff AI, Figma AI / 工具推荐</li>
+    </ul>
+    <a href="https://www.youtube.com/@SatoriGraphics" class="article-link" target="_blank">Watch on YouTube</a>
+  </div>
+</div>
+
+<!-- ===== AI / CODING ===== -->
+<div class="section" id="ai">
+  <div class="section-head">
+    <h2>AI / Coding</h2>
+    <div class="en">Vibe Coding & AI Tools</div>
+  </div>
+
+  <div class="pick">
+    <div class="pick-label">Section Pick</div>
+    <h3>Fireship: Vibe Coding Tools Landscape 2026</h3>
+    <div class="subtitle">Vibe Coding工具格局</div>
+    <p class="body-en">
+      Fireship maps the three dominant Vibe Coding tools in 2026. Cursor for pros who want full code control. Lovable for non-technical users who need the fastest prototype. Claude Code sits in the middle with strong long-context reasoning. A new paradigm emerges: Google Stitch + AI Studio represents "design-first Vibe Coding."
+    </p>
+    <p class="body-cn">
+      Fireship梳理了2026年三大主流Vibe Coding工具。Cursor适合想要完全代码控制的专业开发者。Lovable适合需要最快原型的非技术人员。Claude Code处于中间地带，长上下文推理能力强。新范式：Google Stitch + AI Studio代表"设计优先的Vibe Coding"。
+    </p>
+    <a href="https://www.youtube.com/@Fireship" target="_blank">Watch on YouTube</a>
+  </div>
+
+  <div class="article">
+    <div class="article-tag">Tool Comparison</div>
+    <h3>Vibe Coding Tools: Cursor vs Claude Code vs Lovable</h3>
+    <div class="subtitle">三大工具终极对比</div>
+    <p class="body-en">
+      The Vibe Coding landscape has matured significantly in 2026. Cursor remains the top choice for developers who want to maintain full control over their codebase. Lovable has proven its model with $400M ARR, making it the go-to for rapid prototyping without writing code. Claude Code excels in scenarios requiring deep context understanding across large codebases.
+    </p>
+    <p class="body-cn">
+      2026年Vibe Coding格局已显著成熟。Cursor仍然是希望在利用AI辅助的同时保持对代码库完全控制的开发者的首选。Lovable以4亿美元ARR证明了其模式，成为不写代码快速原型的首选。Claude Code在需要跨大型代码库深度理解上下文的场景中表现出色。
+    </p>
+    <ul class="bullet-list">
+      <li><strong>Cursor</strong> — For pros, full code control / 适合专业开发者，完全代码控制</li>
+      <li><strong>Lovable</strong> — For non-tech, fastest prototype / 适合非技术人员，最快原型</li>
+      <li><strong>Claude Code</strong> — Middle ground, long context / 中间地带，长上下文推理</li>
+      <li>New paradigm: Stitch + AI Studio / 新范式：设计优先Vibe Coding</li>
+      <li>MCP protocol as standard bridge / MCP协议成为标准纽带</li>
+    </ul>
+    <a href="https://www.youtube.com/watch?v=8I3NTE4cn5s" class="article-link" target="_blank">Watch on YouTube</a>
+  </div>
+
+  <div class="article">
+    <div class="article-tag">Practitioner Tips</div>
+    <h3>Vibe Coding Practical Tips</h3>
+    <div class="subtitle">Vibe Coding 实战技巧</div>
+    <p class="body-en">
+      Experienced practitioners have developed best practices for working effectively with AI coding tools. Prompt Architecture — breaking complex requirements into precise prompt sequences — delivers 3x better results than single long prompts. Output Validation is critical: 45% of AI-generated code contains OWASP Top 10 vulnerabilities.
+    </p>
+    <p class="body-cn">
+      经验丰富的从业者已开发出一套与AI编码工具高效协作的最佳实践。提示架构——将复杂需求分解为精确的提示序列——效果比单次长提示好3倍。输出验证至关重要：45%的AI生成代码包含OWASP Top 10漏洞。
+    </p>
+    <ul class="bullet-list">
+      <li><strong>Prompt Architecture</strong> — Break complex needs into precise sequences / 分解为精确提示序列</li>
+      <li><strong>Output Validation</strong> — 45% of AI code has security issues / 45%AI代码有安全问题</li>
+      <li><strong>Checkpoint every 10 messages</strong> — Save progress / 每10条消息保存进度</li>
+      <li><strong>Never let AI handle auth/payment/crypto</strong> — Critical security boundary / 安全红线</li>
+      <li><strong>Multi-agent orchestration</strong> — Conductor / Vibe Kanban / 多Agent编排</li>
+    </ul>
+  </div>
+
+  <div class="article">
+    <div class="article-tag">Tool Recommendations</div>
+    <h3>Tools of the Week</h3>
+    <div class="subtitle">本周工具</div>
+    <p class="body-en">
+      This week's standout tools include Google Stitch, which generates UI components from natural language descriptions. Claude Code brings long-context reasoning to large codebases. Motiff AI automatically extracts reusable elements and design system maintenance from design files.
+    </p>
+    <p class="body-cn">
+      本周 standout 工具包括 Google Stitch，可从自然语言描述生成UI组件。Claude Code为大型代码库带来长上下文推理能力。Motiff AI自动从设计文件提取可复用元素和维护设计系统。
+    </p>
+    <ul class="bullet-list">
+      <li><strong>Google Stitch</strong> — AI visual design, natural language to UI / AI视觉设计，自然语言生成UI</li>
+      <li><strong>Claude Code</strong> — Long-context AI coding assistant / 长上下文AI编码助手</li>
+      <li><strong>Motiff AI</strong> — Design system automation / 设计系统自动提取和维护</li>
+    </ul>
+  </div>
+</div>
+
+<!-- ===== GROWTH ===== -->
+<div class="section" id="growth">
+  <div class="section-head">
+    <h2>成长</h2>
+    <div class="en">Creator Economy & Mindset</div>
+  </div>
+
+  <div class="pick">
+    <div class="pick-label">Section Pick</div>
+    <h3>Dan Koe: The Future Of Work</h3>
+    <div class="subtitle">2026年高收入技能栈</div>
+    <p class="body-en">
+      Dan Koe maps the 2026 high-income skill stack: AI tool proficiency + strategic thinking + personal brand building. Traditional employment is collapsing, and the one-person company is becoming the new normal. But it requires a "product mindset" rather than a service mindset. Multi-interest polymaths have an advantage — the combination premium of writing + design + marketing + coding far exceeds single specialization.
+    </p>
+    <p class="body-cn">
+      Dan Koe绘制了2026年的高收入技能栈：AI工具熟练度 + 战略思维 + 个人品牌建设。传统雇佣模式正在瓦解，一人公司成为新常态。多兴趣者的优势：跨界能力（写作+设计+营销+编程）的组合溢价远超单一专精。
+    </p>
+    <a href="https://www.youtube.com/watch?v=vCoGfisdS8Y" target="_blank">Watch on YouTube</a>
+  </div>
+
+  <div class="article">
+    <div class="article-tag">Creator Economy</div>
+    <h3>Dan Koe: How I'd build a one-person business (if I started over in 2026)</h3>
+    <div class="subtitle">2026年一人公司蓝图</div>
+    <p class="body-en">
+      If starting over in 2026, Dan Koe would choose a "writing-first" path — text is the most leveraged content form. The 5 income levels: Freelancing ($0-1K) -> Digital products ($1-5K) -> Courses + community ($5-20K) -> SaaS ($20-50K) -> Investment portfolio ($50K+). The critical bottleneck: transitioning from Level 2 to Level 3 requires shifting from "selling time" to "selling systems."
+    </p>
+    <p class="body-cn">
+      如果2026年重新开始，Dan Koe会选择"写作优先"路径。一人公司的5个收入层级：自由职业(0-1K) -> 数字产品(1-5K) -> 课程+社群(5-20K) -> SaaS(20-50K) -> 投资组合(50K+)。关键瓶颈：从第2层到第3层需要从"卖时间"转向"卖系统"。
+    </p>
+    <ul class="bullet-list">
+      <li><strong>Level 1 ($0-1K)</strong> — Freelancing, trading time for money / 自由职业</li>
+      <li><strong>Level 2 ($1-5K)</strong> — Digital products, first scale / 数字产品</li>
+      <li><strong>Level 3 ($5-20K)</strong> — Courses + community, recurring revenue / 课程+社群</li>
+      <li><strong>Level 4 ($20K-50K)</strong> — SaaS products, automated income / SaaS产品</li>
+      <li><strong>Level 5 ($50K+)</strong> — Investment portfolio / 投资组合</li>
+      <li>Newsletter is the most valuable asset in 2026 / Newsletter是2026年最值得投入的资产</li>
+    </ul>
+    <a href="https://www.youtube.com/watch?v=VyR8nqD3sQ8" class="article-link" target="_blank">Watch on YouTube</a>
+  </div>
+</div>
+
+<!-- ===== MONTHLY STUDY ===== -->
+<div class="section" id="study">
+  <div class="section-head">
+    <h2>本月学习</h2>
+    <div class="en">Monthly Study — July 2026</div>
+  </div>
+
+  <div class="study-intro">
+    <div class="en">This month focuses on digital advertising. From Meta's 3-tier structure to TikTok's native content ads, from Google search keywords to YouTube video marketing — master the logic and practice of all four major platforms.</div>
+    <div class="cn">本月聚焦数字广告投放。从Meta广告的三层架构到TikTok的内容原生广告，从Google搜索关键词到YouTube视频营销，系统掌握四大平台的投放逻辑和实操要点。</div>
+  </div>
+
+  <!-- Meta -->
+  <div class="study-card">
+    <div class="platform-tag">Meta / Facebook Ads</div>
+    <h4>Meta Ads 3-Tier Architecture & Logic</h4>
+    <div class="en-title">Meta广告三层架构与投放逻辑</div>
+
+    <div class="study-section">
+      <h5>Core Architecture / 核心架构</h5>
+      <ul class="bullet-list">
+        <li><strong>Campaign</strong> — Define advertising objective (brand awareness, traffic, conversions, sales) and overall budget strategy. / 定义广告目标（品牌认知、流量、转化、销售等），设定整体预算策略。</li>
+        <li><strong>Ad Set</strong> — Define audience (demographics, interests, behaviors, custom audiences, lookalikes), placements, budget allocation, and schedule. / 定义受众（人口统计、兴趣、行为、自定义受众、类似受众）、版位、预算分配、排程。</li>
+        <li><strong>Ad</strong> — What users actually see: image/video, copy, CTA button, landing page link. / 用户实际看到的内容：图片/视频、文案、CTA按钮、落地页链接。</li>
+      </ul>
+    </div>
+
+    <div class="study-section">
+      <h5>Audience Strategy / 受众策略</h5>
+      <ul class="bullet-list">
+        <li><strong>Core Audiences</strong> — Manual targeting based on demographics, interests, behaviors. / 基于人口统计、兴趣、行为手动定位。</li>
+        <li><strong>Custom Audiences</strong> — Based on website visitors, app events, customer lists, video viewers. / 基于网站访客、APP事件、客户名单、视频观看者。</li>
+        <li><strong>Lookalike Audiences</strong> — Find similar people based on custom audiences, 1%-10% similarity. / 基于自定义受众找到相似人群，1%-10%相似度。</li>
+        <li><strong>Advantage+ Audience</strong> — Meta AI auto-optimizes targeting (recommended post-2024). / Meta AI自动优化定向（2024年后推荐）。</li>
+      </ul>
+    </div>
+
+    <div class="study-section">
+      <h5>Budget Strategy / 预算策略</h5>
+      <ul class="bullet-list">
+        <li><strong>CBO</strong> — Campaign-level budget, auto-allocated to best-performing Ad Sets. / Campaign层级预算，自动分配给表现最好的Ad Set。</li>
+        <li><strong>ABO</strong> — Ad Set-level budget, manual control per audience. / Ad Set层级预算，手动控制每个受众。</li>
+        <li>Test with ABO, scale with CBO. / 测试期用ABO，扩量期用CBO。</li>
+      </ul>
+    </div>
+
+    <div class="study-section">
+      <h5>Key Metrics / 关键指标</h5>
+      <ul class="bullet-list">
+        <li><strong>CPM</strong> — Cost per 1000 impressions, measures traffic cost. / 千次展示成本，衡量流量成本。</li>
+        <li><strong>CPC/CTR</strong> — Click cost and rate, measures creative appeal. / 点击成本和点击率，衡量素材吸引力。</li>
+        <li><strong>CPA</strong> — Cost per acquisition, measures conversion efficiency. / 单次转化成本，衡量转化效率。</li>
+        <li><strong>ROAS</strong> — Return on ad spend, measures profitability. / 广告支出回报率，衡量盈利能力。</li>
+        <li><strong>Frequency</strong> — Ad frequency, consider refreshing creative after 3-5 views. / 展示频次，超过3-5次考虑更换素材。</li>
+      </ul>
+    </div>
+
+    <div class="video-rec">
+      <h6>Recommended Videos / 推荐视频</h6>
+      <div class="video-rec-item">
+        <a href="https://www.youtube.com/results?search_query=meta+facebook+ads+complete+tutorial+2026" target="_blank">Meta Ads Complete Tutorial 2026</a>
+        <p>Full walkthrough from account setup to advanced optimization / 从账户设置到高级优化</p>
+      </div>
+      <div class="video-rec-item">
+        <a href="https://www.youtube.com/results?search_query=facebook+ads+3-tier+structure+campaign+adset+ad" target="_blank">Facebook Ads 3-Tier Structure Explained</a>
+        <p>Campaign / Ad Set / Ad breakdown with real examples / 三层结构实战拆解</p>
+      </div>
+      <div class="video-rec-item">
+        <a href="https://www.youtube.com/results?search_query=meta+advantage%2B+audience+targeting+2026" target="_blank">Meta Advantage+ Audience & Targeting</a>
+        <p>AI-powered targeting vs manual audience setup / AI智能投放 vs 手动定向</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- TikTok -->
+  <div class="study-card">
+    <div class="platform-tag">TikTok Ads</div>
+    <h4>TikTok Ads Native Content Logic</h4>
+    <div class="en-title">TikTok广告的内容原生逻辑</div>
+
+    <div class="study-section">
+      <h5>Ad Formats / 广告形式</h5>
+      <ul class="bullet-list">
+        <li><strong>In-Feed Ads</strong> — Blends into For You page, up to 60 seconds. / 融入For You页面，最长60秒。</li>
+        <li><strong>TopView</strong> — Full-screen immersive, 3s image or 3-60s video. / 全屏沉浸式。</li>
+        <li><strong>Spark Ads</strong> — Native post as ad, click to landing page. / 原生帖子作为广告。</li>
+        <li><strong>Branded Hashtag Challenge</strong> — UGC-driven brand campaign. / UGC驱动的品牌活动。</li>
+        <li><strong>Branded Effect</strong> — AR filters & stickers. / AR滤镜和贴纸。</li>
+      </ul>
+    </div>
+
+    <div class="study-section">
+      <h5>Content Strategy / 内容策略</h5>
+      <ul class="bullet-list">
+        <li>Hook in first 3 seconds: questions, surprises, contrasts. / 前三秒抓眼球：疑问、惊喜、反差。</li>
+        <li>Show product in context, not hard-sell. / 在场景中展示产品，不要硬广。</li>
+        <li>Use trending sounds & hashtags. / 使用热门音乐和标签。</li>
+        <li>9:16 vertical format. / 竖屏9:16格式。</li>
+        <li>9-15 seconds optimal length. / 建议时长9-15秒。</li>
+      </ul>
+    </div>
+
+    <div class="study-section">
+      <h5>Bidding Models / 出价模式</h5>
+      <ul class="bullet-list">
+        <li><strong>CPC</strong> — Per click. / 按点击计费。</li>
+        <li><strong>CPM</strong> — Per 1000 impressions. / 按千次展示计费。</li>
+        <li><strong>oCPM</strong> — Optimized CPM. / 优化千次展示。</li>
+        <li><strong>GMV MAX</strong> — Auto ROAS optimization. / 自动ROAS优化。</li>
+      </ul>
+    </div>
+
+    <div class="video-rec">
+      <h6>Recommended Videos / 推荐视频</h6>
+      <div class="video-rec-item">
+        <a href="https://www.youtube.com/results?search_query=tiktok+ads+complete+tutorial+2026+for+beginners" target="_blank">TikTok Ads Complete Tutorial 2026</a>
+        <p>From account setup to first campaign / 从开户到首个Campaign</p>
+      </div>
+      <div class="video-rec-item">
+        <a href="https://www.youtube.com/results?search_query=tiktok+shop+ads+strategy+2026" target="_blank">TikTok Shop Ads Strategy</a>
+        <p>E-commerce focus: product ads & Spark Ads / 电商投放：产品广告与Spark Ads</p>
+      </div>
+      <div class="video-rec-item">
+        <a href="https://www.youtube.com/results?search_query=tiktok+creative+best+practices+viral+content" target="_blank">TikTok Creative Best Practices</a>
+        <p>What makes TikTok ads feel native / 什么让TikTok广告感觉原生</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Google -->
+  <div class="study-card">
+    <div class="platform-tag">Google Ads</div>
+    <h4>Google Ads Search Intent & Multi-Channel</h4>
+    <div class="en-title">Google广告搜索意图与多渠道分发</div>
+
+    <div class="study-section">
+      <h5>4-Tier Architecture / 四层架构</h5>
+      <ul class="bullet-list">
+        <li><strong>Account</strong> — Payment, permissions, tracking setup. / 付款方式、账户权限、转化追踪设置。</li>
+        <li><strong>Campaign</strong> — Budget, bidding, geo-targeting, schedule, ad type. / 预算、出价策略、地理定位、投放时间、广告类型。</li>
+        <li><strong>Ad Group</strong> — Keyword groups, single theme principle. / 关键词组织、单一主题原则。</li>
+        <li><strong>Keywords / Ads</strong> — Match types, bid adjustments, copy, landing page. / 匹配类型、出价调整、广告文案、落地页。</li>
+      </ul>
+    </div>
+
+    <div class="study-section">
+      <h5>Ad Types / 广告类型</h5>
+      <ul class="bullet-list">
+        <li><strong>Search Ads</strong> — Text ads on search results. / 搜索结果文字广告。</li>
+        <li><strong>Shopping Ads</strong> — Product listing with image and price. / 产品列表广告。</li>
+        <li><strong>Display Ads</strong> — GDN network, 2M+ websites. / 展示广告网络。</li>
+        <li><strong>Performance Max</strong> — Automated multi-channel. / 全渠道自动化。</li>
+        <li><strong>Demand Gen</strong> — Visual demand generation. / 视觉需求生成。</li>
+      </ul>
+    </div>
+
+    <div class="study-section">
+      <h5>Keyword Match Types / 关键词匹配</h5>
+      <ul class="bullet-list">
+        <li><strong>Exact Match [keyword]</strong> — Exact meaning match. / 仅当搜索词含义完全匹配时展示。</li>
+        <li><strong>Phrase Match "keyword"</strong> — Contains phrase. / 搜索词包含指定词组时展示。</li>
+        <li><strong>Broad Match keyword</strong> — Broad reach. / 相关搜索即可触发。</li>
+        <li>Recommended ratio: Exact 30-40%, Phrase 40-50%, Broad 20-30%. / 建议比例。</li>
+      </ul>
+    </div>
+
+    <div class="video-rec">
+      <h6>Recommended Videos / 推荐视频</h6>
+      <div class="video-rec-item">
+        <a href="https://www.youtube.com/results?search_query=google+ads+complete+tutorial+2026+beginners" target="_blank">Google Ads Complete Tutorial 2026</a>
+        <p>Full guide from account setup to optimization / 完整教程</p>
+      </div>
+      <div class="video-rec-item">
+        <a href="https://www.youtube.com/results?search_query=google+ads+keyword+match+types+explained" target="_blank">Google Ads Keyword Match Types</a>
+        <p>Exact vs Phrase vs Broad match / 三种匹配类型详解</p>
+      </div>
+      <div class="video-rec-item">
+        <a href="https://www.youtube.com/results?search_query=google+performance+max+strategy+2026" target="_blank">Performance Max Strategy 2026</a>
+        <p>How to structure PMax campaigns / PMax广告系列结构</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- YouTube -->
+  <div class="study-card">
+    <div class="platform-tag">YouTube Ads</div>
+    <h4>YouTube Video Ad Formats & Strategy</h4>
+    <div class="en-title">YouTube视频广告格式与投放策略</div>
+
+    <div class="study-section">
+      <h5>Ad Formats / 广告格式</h5>
+      <ul class="bullet-list">
+        <li><strong>Skippable In-stream</strong> — Skippable after 5s, CPV billing. / 5秒后可跳过，CPV计费。</li>
+        <li><strong>Non-skippable In-stream</strong> — 15-30s, CPM billing. / 不可跳过，CPV计费。</li>
+        <li><strong>Bumper Ads</strong> — 6 seconds, brand recall. / 6秒，强化品牌记忆。</li>
+        <li><strong>In-feed Video</strong> — Discovery ads. / 发现广告。</li>
+        <li><strong>Shorts Ads</strong> — Vertical short ads. / 竖屏短视频广告。</li>
+      </ul>
+    </div>
+
+    <div class="study-section">
+      <h5>Production Tips / 制作要点</h5>
+      <ul class="bullet-list">
+        <li>First 5 seconds are critical. / 前5秒决定生死。</li>
+        <li>Key info in first 15s. / 重要信息放在前15秒。</li>
+        <li>30s-1min optimal length. / 建议时长30秒-1分钟。</li>
+        <li>Use CTA overlays. / 使用CTA按钮。</li>
+        <li>Banner stays after video. / Companion Banner视频结束后保留。</li>
+      </ul>
+    </div>
+
+    <div class="study-section">
+      <h5>Audience Targeting / 受众定位</h5>
+      <ul class="bullet-list">
+        <li>Interest-based. / 兴趣定向。</li>
+        <li>Custom intent from search. / 自定义意向。</li>
+        <li>Remarketing. / 再营销。</li>
+        <li>Similar audiences. / 类似受众。</li>
+        <li>Channel placement. / 特定频道投放。</li>
+      </ul>
+    </div>
+
+    <div class="video-rec">
+      <h6>Recommended Videos / 推荐视频</h6>
+      <div class="video-rec-item">
+        <a href="https://www.youtube.com/results?search_query=youtube+ads+complete+tutorial+2026" target="_blank">YouTube Ads Complete Tutorial 2026</a>
+        <p>From format selection to campaign setup / 从格式选择到广告设置</p>
+      </div>
+      <div class="video-rec-item">
+        <a href="https://www.youtube.com/results?search_query=youtube+ads+skippable+instream+best+practices" target="_blank">YouTube Skippable Ads Best Practices</a>
+        <p>How to make viewers watch past 5 seconds / 如何让观众看超过5秒</p>
+      </div>
+      <div class="video-rec-item">
+        <a href="https://www.youtube.com/results?search_query=youtube+ads+remarketing+strategy+2026" target="_blank">YouTube Remarketing Strategy</a>
+        <p>Turn viewers into customers / 将观众转化为客户</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Cross-Platform -->
+  <div class="study-card">
+    <div class="platform-tag">Cross-Platform Strategy</div>
+    <h4>4-Platform Coordinated Strategy</h4>
+    <div class="en-title">四平台协同投放策略</div>
+
+    <div class="study-section">
+      <h5>Funnel Positioning / 漏斗定位</h5>
+      <ul class="bullet-list">
+        <li><strong>Top of Funnel (Awareness)</strong> — YouTube brand ads + TikTok native content + Meta brand campaigns. / YouTube品牌广告 + TikTok原生内容 + Meta品牌认知Campaign。</li>
+        <li><strong>Middle of Funnel (Interest)</strong> — Meta interest targeting + Google Display + YouTube In-feed. / Meta兴趣定向 + Google Display + YouTube In-feed。</li>
+        <li><strong>Bottom of Funnel (Conversion)</strong> — Google Search + Meta remarketing + YouTube remarketing. / Google Search + Meta再营销 + YouTube再营销。</li>
+        <li><strong>Retention</strong> — Meta custom audiences + Email + Google Customer Match. / Meta自定义受众 + Email + Google Customer Match。</li>
+      </ul>
+    </div>
+
+    <div class="study-section">
+      <h5>Budget Allocation / 预算分配</h5>
+      <ul class="bullet-list">
+        <li>Testing (&lt;$10k/month): 70% Google Search + 30% Meta. / 测试期：70% Google + 30% Meta。</li>
+        <li>Expansion ($10k-50k/month): 40% Google + 40% Meta + 20% TikTok/YouTube. / 扩展期：40% + 40% + 20%。</li>
+        <li>Scale ($50k+/month): Balanced across all channels. / 规模化期：全渠道均衡。</li>
+      </ul>
+    </div>
+
+    <div class="video-rec">
+      <h6>Recommended Videos / 推荐视频</h6>
+      <div class="video-rec-item">
+        <a href="https://www.youtube.com/results?search_query=cross+platform+advertising+strategy+meta+google+tiktok" target="_blank">Cross-Platform Advertising Strategy</a>
+        <p>How to coordinate Meta, Google, TikTok, YouTube / 如何协同四大平台</p>
+      </div>
+      <div class="video-rec-item">
+        <a href="https://www.youtube.com/results?search_query=marketing+funnel+full+strategy+2026" target="_blank">Full Marketing Funnel Strategy</a>
+        <p>From awareness to retention / 从认知到留存</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="archive-footer">
+  <a href="archive.html">View Archive</a>
+</div>
+
+</main>
+
+<!-- Floating Note Button -->
+
+<button class="note-btn" id="noteBtn">+</button>
+
+<!-- Draggable Modal -->
+<div class="modal-overlay" id="modalOverlay">
+  <div class="modal" id="modal">
+    <div class="modal-header" id="modalHeader">
+      <h3>My Notes</h3>
+      <button class="modal-close" id="modalClose">&times;</button>
+    </div>
+    <div class="modal-body">
+      <textarea id="noteInput" placeholder="Take notes while reading...
+
+Format:
+- Key Concept:
+- Actionable Insight:
+- Next Action:"></textarea>
+    </div>
+    <div class="modal-footer">
+      <span class="hint">Auto-saved to browser</span>
+      <button class="btn-primary" id="saveBtn">Save</button>
+    </div>
+  </div>
+</div>
+
+<script>
+// === Date ===
+document.getElementById('date').textContent = new Date().toLocaleDateString('en-US', {
+  year: 'numeric', month: 'long', day: 'numeric'
+});
+
+// === Nav scroll spy ===
+const sectionIds = ['featured', 'marketing', 'design', 'ai', 'growth', 'study'];
+window.addEventListener('scroll', () => {
+  const scrollPos = window.scrollY + 120;
+  sectionIds.forEach(id => {
+    const el = document.getElementById(id);
+    if (el && scrollPos >= el.offsetTop && scrollPos < el.offsetTop + el.offsetHeight) {
+      document.querySelectorAll('.nav a').forEach(a => a.classList.remove('active'));
+      document.querySelector('.nav a[href="#' + id + '"]').classList.add('active');
+    }
+  });
+});
+
+// === Note Modal ===
+const noteBtn = document.getElementById('noteBtn');
+const modalOverlay = document.getElementById('modalOverlay');
+const modal = document.getElementById('modal');
+const modalHeader = document.getElementById('modalHeader');
+const modalClose = document.getElementById('modalClose');
+const saveBtn = document.getElementById('saveBtn');
+const noteInput = document.getElementById('noteInput');
+
+// Load saved note
+try {
+  noteInput.value = localStorage.getItem('yb-note-text') || '';
+} catch(e) {}
+
+noteBtn.addEventListener('click', function() {
+  modalOverlay.classList.add('open');
+});
+
+function closeModalFn() {
+  modalOverlay.classList.remove('open');
+  modal.style.position = '';
+  modal.style.left = '';
+  modal.style.top = '';
+  modal.style.margin = '';
+}
+
+modalClose.addEventListener('click', closeModalFn);
+modalOverlay.addEventListener('click', function(e) {
+  if (e.target === modalOverlay) closeModalFn();
+});
+
+saveBtn.addEventListener('click', function() {
+  try {
+    localStorage.setItem('yb-note-text', noteInput.value);
+  } catch(e) {}
+  closeModalFn();
+});
+
+noteInput.addEventListener('input', function() {
+  try {
+    localStorage.setItem('yb-note-text', noteInput.value);
+  } catch(e) {}
+});
+
+// === Draggable ===
+let isDragging = false;
+let startX, startY, initialLeft, initialTop;
+
+modalHeader.addEventListener('mousedown', function(e) {
+  isDragging = true;
+  startX = e.clientX;
+  startY = e.clientY;
+  var rect = modal.getBoundingClientRect();
+  initialLeft = rect.left;
+  initialTop = rect.top;
+  modal.style.position = 'absolute';
+  modal.style.left = initialLeft + 'px';
+  modal.style.top = initialTop + 'px';
+  modal.style.margin = '0';
+});
+
+document.addEventListener('mousemove', function(e) {
+  if (!isDragging) return;
+  e.preventDefault();
+  modal.style.left = (initialLeft + e.clientX - startX) + 'px';
+  modal.style.top = (initialTop + e.clientY - startY) + 'px';
+});
+
+document.addEventListener('mouseup', function() {
+  isDragging = false;
+});
+
+// ESC close
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') closeModalFn();
+});
+</script>
+
+</body>
+</html>

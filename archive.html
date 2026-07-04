@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>历史日报 | YB日报</title>
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  :root {
+    --bg: #ffffff;
+    --surface: #fafafa;
+    --text: #1d1d1f;
+    --muted: #86868b;
+    --light: #d2d2d7;
+    --accent: #0071e3;
+    --radius: 12px;
+  }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+  }
+  header {
+    padding: 32px;
+    text-align: center;
+    border-bottom: 1px solid var(--light);
+  }
+  .logo { font-size: 24px; font-weight: 700; letter-spacing: -0.5px; }
+  .back {
+    display: inline-block;
+    margin-top: 12px;
+    font-size: 13px;
+    color: var(--accent);
+    text-decoration: none;
+  }
+  
+  .search-bar {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 24px 32px;
+  }
+  .search-bar input {
+    width: 100%;
+    padding: 12px 20px;
+    border: 1px solid var(--light);
+    border-radius: 100px;
+    font-size: 15px;
+    outline: none;
+    font-family: inherit;
+  }
+  .search-bar input:focus { border-color: var(--accent); }
+  .filters {
+    display: flex;
+    gap: 8px;
+    margin-top: 12px;
+    flex-wrap: wrap;
+  }
+  .filter-btn {
+    padding: 6px 16px;
+    border-radius: 100px;
+    border: 1px solid var(--light);
+    background: var(--bg);
+    font-size: 13px;
+    cursor: pointer;
+    color: var(--muted);
+  }
+  .filter-btn:hover, .filter-btn.active {
+    background: var(--text);
+    color: #fff;
+    border-color: var(--text);
+  }
+  
+  main {
+    max-width: 680px;
+    margin: 0 auto;
+    padding: 0 32px 80px;
+  }
+  
+  .timeline-year {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin: 32px 0 16px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--light);
+  }
+  
+  .entry {
+    padding: 20px 0;
+    border-bottom: 1px solid var(--light);
+    cursor: pointer;
+    transition: opacity 0.2s;
+  }
+  .entry:hover { opacity: 0.7; }
+  .entry-date {
+    font-size: 13px;
+    color: var(--muted);
+    margin-bottom: 4px;
+  }
+  .entry-title {
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 4px;
+  }
+  .entry-theme {
+    font-size: 14px;
+    color: var(--muted);
+  }
+  .entry-tags {
+    display: flex;
+    gap: 6px;
+    margin-top: 8px;
+  }
+  .entry-tag {
+    font-size: 11px;
+    color: var(--muted);
+    background: var(--surface);
+    padding: 2px 10px;
+    border-radius: 100px;
+  }
+  
+  .empty {
+    text-align: center;
+    padding: 80px 0;
+    color: var(--muted);
+  }
+  
+  @media (max-width: 768px) {
+    main { padding: 0 20px 60px; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="logo">历史日报</div>
+  <a class="back" href="index.html">返回今日日报</a>
+</header>
+
+<div class="search-bar">
+  <input type="text" id="search" placeholder="搜索频道、主题、关键词..." oninput="doSearch()">
+  <div class="filters">
+    <button class="filter-btn active" onclick="filterCat('all')">全部</button>
+    <button class="filter-btn" onclick="filterCat('marketing')">营销</button>
+    <button class="filter-btn" onclick="filterCat('design')">设计</button>
+    <button class="filter-btn" onclick="filterCat('ai')">AI</button>
+    <button class="filter-btn" onclick="filterCat('growth')">成长</button>
+  </div>
+</div>
+
+<main id="list">
+  <div class="empty">加载中...</div>
+</main>
+
+<script>
+let archiveData = null;
+let currentFilter = 'all';
+let currentSearch = '';
+
+async function load() {
+  try {
+    const res = await fetch('data/archive.json');
+    archiveData = await res.json();
+    render();
+  } catch(e) {
+    document.getElementById('list').innerHTML = '<div class="empty">暂无历史数据</div>';
+  }
+}
+
+function render() {
+  if (!archiveData || !archiveData.entries) return;
+  
+  const entries = Object.values(archiveData.entries).sort((a, b) => b.date.localeCompare(a.date));
+  const filtered = entries.filter(e => matches(e));
+  
+  if (filtered.length === 0) {
+    document.getElementById('list').innerHTML = '<div class="empty">没有找到匹配的内容</div>';
+    return;
+  }
+  
+  let html = '';
+  let currentYear = '';
+  
+  filtered.forEach(entry => {
+    const year = entry.date.split('-')[0];
+    if (year !== currentYear) {
+      currentYear = year;
+      html += `<div class="timeline-year">${year}</div>`;
+    }
+    
+    const tags = [];
+    if (entry.channels) {
+      entry.channels.forEach(c => {
+        if (!tags.includes(c.category)) tags.push(c.category);
+      });
+    }
+    
+    html += `
+      <div class="entry" onclick="openEntry('${entry.date}')">
+        <div class="entry-date">${entry.date}</div>
+        <div class="entry-title">${entry.featured?.title || entry.theme}</div>
+        <div class="entry-theme">${entry.theme}</div>
+        <div class="entry-tags">
+          ${tags.map(t => `<span class="entry-tag">${t}</span>`).join('')}
+        </div>
+      </div>
+    `;
+  });
+  
+  document.getElementById('list').innerHTML = html;
+}
+
+function matches(entry) {
+  // Category filter
+  if (currentFilter !== 'all') {
+    const catMap = { marketing: '营销', design: '设计', ai: 'AI', growth: '成长' };
+    const hasCat = entry.channels?.some(c => c.category === catMap[currentFilter]);
+    if (!hasCat && entry.featured?.category !== catMap[currentFilter]) return false;
+  }
+  
+  // Search
+  if (currentSearch) {
+    const s = currentSearch.toLowerCase();
+    const text = [
+      entry.theme,
+      entry.featured?.title,
+      entry.featured?.channel,
+      ...(entry.channels?.map(c => c.title) || []),
+      ...(entry.channels?.map(c => c.channel) || [])
+    ].join(' ').toLowerCase();
+    if (!text.includes(s)) return false;
+  }
+  
+  return true;
+}
+
+function doSearch() {
+  currentSearch = document.getElementById('search').value.trim();
+  render();
+}
+
+function filterCat(cat) {
+  currentFilter = cat;
+  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+  event.target.classList.add('active');
+  render();
+}
+
+function openEntry(date) {
+  window.open(`archive/${date}.html`, '_blank');
+}
+
+load();
+</script>
+
+</body>
+</html>

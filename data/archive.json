@@ -1,0 +1,215 @@
+{
+  "version": "1.0",
+  "created": "2026-07-03",
+  "entries": {
+    "2026-07-03": {
+      "date": "2026-07-03",
+      "theme": "创作者经济五大转变",
+      "featured": {
+        "channel": "Gary Vee",
+        "category": "营销",
+        "title": "2026年创作者经济的五大转变",
+        "titleEn": "5 Shifts in Creator Economy 2026",
+        "url": "https://youtube.com/@garyvee",
+        "summary": "Gary Vee分享了对2026年创作者经济的深度洞察。核心观点：免费分发的黄金时代正在结束，AI生成的内容将淹没所有平台，导致平台转向付费模式。",
+        "takeaways": [
+          "免费分发终结：到2028年，所有主要平台都将转向付费推广模式",
+          "AI内容泛滥：高质量AI生成内容将淹没feed",
+          "乐高积木框架：每个视频 = 话题 + 角度 + 钩子 + 故事 + 视觉 + 关键帧 + 音频",
+          "YouTube是信任积累的最佳平台",
+          "未来3年 aggressively 建立受众"
+        ],
+        "insight": "钩子三层同步可以被AI工具辅助优化"
+      },
+      "channels": [
+        {
+          "channel": "Kallaway",
+          "category": "营销",
+          "title": "用AI打造病毒式短视频的系统方法论",
+          "url": "https://youtube.com/@kallaway",
+          "points": [
+            "用AI转写前50个爆款视频，提取高频结构模式",
+            "将视频拆解为7个核心组件",
+            "用Mad Libs方式批量生成脚本模板",
+            "钩子三层同步原则",
+            "推荐工具：ChatGPT + Claude"
+          ]
+        },
+        {
+          "channel": "Satori Graphics",
+          "category": "设计",
+          "title": "2026年设计趋势",
+          "url": "https://youtube.com/@SatoriGraphics",
+          "points": [
+            "设计师角色转变：从执行者到AI策展人",
+            "Vibe Design成为主流workflow",
+            "色彩趋势：数字自然——荧光绿+大地色",
+            "排版趋势：极端对比",
+            "推荐工具：Midjourney v7、Google Stitch、Figma AI"
+          ]
+        },
+        {
+          "channel": "Fireship",
+          "category": "AI",
+          "title": "Vibe Coding工具终极对比2026",
+          "url": "https://youtube.com/@Fireship",
+          "points": [
+            "Cursor适合专业开发者",
+            "Lovable适合非技术人员",
+            "Claude Code适合中间层",
+            "Google Stitch + AI Studio = 设计优先范式",
+            "MCP协议成为标准纽带"
+          ]
+        },
+        {
+          "channel": "Dan Koe",
+          "category": "成长",
+          "title": "一人公司月入10万的5个收入层级",
+          "url": "https://youtube.com/@DanKoe",
+          "points": [
+            "第1层（0-1k）：自由职业接单",
+            "第2层（1k-5k）：数字产品",
+            "第3层（5k-20k）：课程+社群",
+            "第4层（20k-50k）：SaaS产品",
+            "第5层（50k+）：投资组合"
+          ]
+        },
+        {
+          "channel": "Alex Garcia",
+          "category": "营销",
+          "title": "9位数媒体公司的内容营销playbook",
+          "url": "https://youtube.com/@AlexGarciaBuilds",
+          "points": [
+            "品牌作弊码：找到内容空白区",
+            "创作者作弊码：案例分析格式",
+            "分发飞轮：1个核心内容=10个衍生",
+            "Newsletter从0到10万仅用18个月",
+            "每周一个深度案例"
+          ]
+        }
+      ],
+      "aiTips": [
+        "Prompt Architecture：分解为精确提示序列",
+        "Output Validation：不要完全信任AI输出",
+        "每10条消息设置检查点",
+        "Ralph Wiggum模式：自主运行直到完成",
+        "多Agent编排：并行运行多个AI代理"
+      ],
+      "tools": [
+        "Google Stitch：AI视觉设计工具",
+        "Conductor：并行AI编码代理管理",
+        "Vibe Kanban：AI编码任务看板"
+      ]
+    },
+    "2026-07-04": {
+      "date": "2026-07-04",
+      "theme": "AI时代的设计思维重构",
+      "featured": {
+        "channel": "Satori Graphics",
+        "category": "设计",
+        "title": "高阶设计思维的层次——附实例解析",
+        "titleEn": "The Layers To High-Level Design Thinking That Will Change You! (With Examples)",
+        "url": "https://www.youtube.com/watch?v=Fn0-wFrC_N8",
+        "summary": "Satori Graphics在最新视频中深入拆解了高阶设计思维的多层结构，从基础视觉执行到战略性创意决策的跃迁路径。视频强调设计师必须超越工具操作，建立系统性的设计思考框架，才能在AI工具普及的时代保持竞争力。",
+        "takeaways": [
+          "设计思维分为执行层、策略层和概念层三个递进阶段",
+          "高阶设计师的核心能力是将商业目标转化为视觉语言",
+          "AI工具可以替代执行层工作，但策略层和概念层仍需人类主导",
+          "通过案例分析展示如何从'好看'走向'有效'的设计",
+          "建立个人设计哲学是区分普通与优秀设计师的关键"
+        ],
+        "insight": "当AI能够生成无限量的'好看'设计时，设计师的价值将从'制作'转向'决策'——理解商业语境、定义设计问题、评估方案有效性，这些高阶能力将成为设计师不可替代的核心竞争力。"
+      },
+      "channels": [
+        {
+          "channel": "Fireship",
+          "category": "AI",
+          "title": "Who really invented the internet...?",
+          "url": "https://www.youtube.com/watch?v=7B0ydm64cV8",
+          "points": [
+            "回顾互联网发展史上被忽视的关键人物与技术贡献",
+            "揭示ARPANET到万维网演进过程中少为人知的转折点",
+            "对'创新者神话'的反思——伟大技术 rarely 来自单一天才",
+            "强调开源协作与学术共享在互联网诞生中的核心作用",
+            "为当代开发者和创作者提供关于知识共享的历史启示"
+          ]
+        },
+        {
+          "channel": "Dan Koe",
+          "category": "成长",
+          "title": "How To Become So Valuable AI Can Never Replace You",
+          "url": "https://www.youtube.com/watch?v=K2QvCV1PB1w",
+          "points": [
+            "AI时代个人不可替代性的五大核心要素",
+            "从'技能积累'转向'独特视角'的能力构建路径",
+            "如何通过公开写作和思考建立个人认知品牌",
+            "反直觉观点：专精单一技能的风险高于通才策略",
+            "实践框架：每天15分钟改变职业轨迹的具体方法"
+          ]
+        },
+        {
+          "channel": "Satori Graphics",
+          "category": "设计",
+          "title": "The ONLY Video You Need To Learn High-Level Design Thinking",
+          "url": "https://www.youtube.com/watch?v=VzQl1Tl_LPM",
+          "points": [
+            "设计思维的本质是解决问题，而非装饰美化",
+            "从用户需求出发的逆向设计方法论",
+            "视觉层级与信息架构的战略性布局原则",
+            "如何在限制条件（预算、时间、技术）下做出最优设计决策",
+            "案例研究：成功品牌如何通过设计思维实现商业目标"
+          ]
+        },
+        {
+          "channel": "Fireship",
+          "category": "AI",
+          "title": "Midjourney has a new side quest... death",
+          "url": "https://www.youtube.com/watch?v=a2i9h2ip-nY",
+          "points": [
+            "Midjourney最新功能更新的深度技术解析",
+            "AI图像生成工具对创意产业的持续冲击与机遇",
+            "开发者视角：如何理解AI生成工具的技术边界",
+            "Fireship标志性的高信息密度解说风格值得学习",
+            "创作者应将AI视为放大器而非替代品的实用建议"
+          ]
+        },
+        {
+          "channel": "Dan Koe",
+          "category": "成长",
+          "title": "If You Have Multiple Interests, Start A One-Person Business",
+          "url": "https://www.youtube.com/watch?v=FBHhmqBs894",
+          "points": [
+            "多兴趣者相比单领域专家的独特商业优势",
+            "如何将跨领域知识转化为差异化内容策略",
+            "一人商业模式的核心：品牌即转化、内容即地图、产品即工具",
+            "从学习者到创业者的最小可行路径",
+            "AI工具如何大幅降低一人创业的门槛"
+          ]
+        },
+        {
+          "channel": "Satori Graphics",
+          "category": "设计",
+          "title": "How To Be Financially FREE As A Graphic Designer!",
+          "url": "https://www.youtube.com/watch?v=5YNcHClzDH4",
+          "points": [
+            "平面设计师实现财务自由的多元收入路径",
+            "从按项目收费到产品化服务的商业模式升级",
+            "建立被动收入流：模板、课程、授权资产的策略",
+            "客户关系管理：从交易型合作到长期伙伴关系的转变",
+            "设计师个人品牌建设的实战方法"
+          ]
+        }
+      ],
+      "aiTips": [
+        "Vibe Coding提示：用自然语言描述需求时，先定义'用户故事'再生成代码，AI的输出质量会显著提升——例如'作为一个用户，我希望点击按钮后看到加载动画'比'写一个加载动画'更有效",
+        "Cursor效率技巧：善用Cmd+K内联编辑和@符号引用代码库，让AI在已有代码上下文中工作，减少重复解释成本",
+        "设计AI协作：使用AI生成初稿后，专注于'策展'而非'创作'——筛选、组合、调整比从零生成更有价值"
+      ],
+      "tools": [
+        "Cursor - AI-native代码编辑器，支持Agent模式自动执行多步骤任务",
+        "Pollo AI - Satori Graphics实测推荐的新兴AI设计工作流工具",
+        "Midjourney v7 - 图像生成质量持续领先，新功能支持更精细的风格控制"
+      ]
+    }
+  }
+}

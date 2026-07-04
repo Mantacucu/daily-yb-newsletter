@@ -1,0 +1,103 @@
+# YouTube日报 - 频道配置
+# 5个不同类型，避免信息茧房
+
+channels:
+  # 1. 营销增长类
+  - name: "Kallaway"
+    handle: "@kallaway"
+    url: "https://www.youtube.com/@kallaway"
+    category: "营销增长"
+    language: "英文"
+    description: "前咨询顾问转型创作者，专注短视频策略、内容营销、增长黑客"
+    focus: "Short-form strategy, content marketing, growth hacking"
+    recent_topics: "AI工具应用、平台算法、内容变现"
+    
+  - name: "Neil Patel"
+    handle: "@NeilPatel"
+    url: "https://www.youtube.com/@NeilPatel"
+    category: "营销增长"
+    language: "英文"
+    description: "SEO与内容营销权威，数据驱动增长"
+    focus: "SEO, content marketing, data-driven growth"
+    recent_topics: "AI内容策略、SEO趋势、流量获取"
+    
+  # 2. 设计创意类
+  - name: "The Futur"
+    handle: "@thefutur"
+    url: "https://www.youtube.com/@thefutur"
+    category: "设计创意"
+    language: "英文"
+    description: "设计商业教育，品牌策略与创意经营"
+    focus: "Brand strategy, creative business, design thinking"
+    recent_topics: "品牌设计、创意商业、设计趋势"
+    
+  - name: "Mizko"
+    handle: "@mizko"
+    url: "https://www.youtube.com/@mizko"
+    category: "设计创意"
+    language: "英文"
+    description: "设计师+开发者，专注AI设计工具与无代码"
+    focus: "AI design tools, no-code, product design"
+    recent_topics: "Vibe Design、AI生成设计、无代码工具"
+    
+  # 3. 思考个人成长类
+  - name: "Dan Koe"
+    handle: "@DanKoe"
+    url: "https://www.youtube.com/@DanKoe"
+    category: "思考成长"
+    language: "英文"
+    description: "一人公司理念，创作者经济，数字游民"
+    focus: "Creator economy, one-person business, mindset"
+    recent_topics: "创作者经济、AI工具、个人品牌"
+    
+  - name: "Ali Abdaal"
+    handle: "@aliabdaal"
+    url: "https://www.youtube.com/@aliabdaal"
+    category: "思考成长"
+    language: "英文"
+    description: "医生转型创作者，生产力与副业专家"
+    focus: "Productivity, side hustles, learning"
+    recent_topics: "AI生产力、副业策略、学习系统"
+    
+  # 4. AI技术类
+  - name: "Andrej Karpathy"
+    handle: "@AndrejKarpathy"
+    url: "https://www.youtube.com/@AndrejKarpathy"
+    category: "AI技术"
+    language: "英文"
+    description: "前特斯拉AI总监，OpenAI创始人，AI教育"
+    focus: "AI education, deep learning, LLMs"
+    recent_topics: "GPT、神经网络、AI编程"
+    
+  - name: "Fireship"
+    handle: "@Fireship"
+    url: "https://www.youtube.com/@Fireship"
+    category: "AI技术"
+    language: "英文"
+    description: "快速技术教程，AI工具评测"
+    focus: "Quick tech tutorials, AI tools, web dev"
+    recent_topics: "Vibe Coding、AI开发工具、新框架"
+    
+  # 5. 品牌策略类
+  - name: "Alex Garcia (Marketing Examined)"
+    handle: "@AlexGarciaBuilds"
+    url: "https://www.youtube.com/@AlexGarciaBuilds"
+    category: "品牌策略"
+    language: "英文"
+    description: "品牌营销案例分析，增长策略"
+    focus: "Brand marketing, case studies, growth"
+    recent_topics: "品牌案例、营销策略、增长黑客"
+    
+  - name: "GaryVee"
+    handle: "@garyvee"
+    url: "https://www.youtube.com/@garyvee"
+    category: "品牌策略"
+    language: "英文"
+    description: "VaynerMedia CEO，社交媒体营销先驱"
+    focus: "Social media marketing, branding, entrepreneurship"
+    recent_topics: "短视频策略、品牌建设、平台趋势"
+
+# 每日精选规则：
+# - 每天从这10个频道中精选5个不同频道的最新内容
+# - 确保涵盖至少3个不同类别
+# - 精选1个最推荐的视频作为"今日必看"

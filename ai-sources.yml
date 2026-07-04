@@ -1,0 +1,106 @@
+# AI / Vibe Coding / Vibe Design 资讯来源配置
+# 参考 follow-builders 模式：追踪真正在建设的人
+
+# Twitter/X 建设者（真正在做产品的人）
+twitter_builders:
+  - name: "Andrej Karpathy"
+    handle: "@karpathy"
+    focus: "AI教育、LLM、神经网络"
+    
+  - name: "Swyx"
+    handle: "@swyx"
+    focus: "AI工程、Latent Space播客"
+    
+  - name: "Pieter Levels"
+    handle: "@levelsio"
+    focus: "一人公司、AI产品、数字游民"
+    
+  - name: "Guillermo Rauch"
+    handle: "@rauchg"
+    focus: "Vercel、Web开发、AI工具"
+    
+  - name: "Amjad Masad"
+    handle: "@amasad"
+    focus: "Replit、Vibe Coding"
+    
+  - name: "Simon Willison"
+    handle: "@simonw"
+    focus: "AI工具、数据新闻、Python"
+    
+  - name: "Logan Kilpatrick"
+    handle: "@OfficialLoganK"
+    focus: "Google AI、开发者关系"
+    
+  - name: "Alex Albert"
+    handle: "@alexalbert__"
+    focus: "Claude、Anthropic产品"
+
+# 官方博客
+blogs:
+  - name: "Anthropic Engineering"
+    url: "https://www.anthropic.com/engineering"
+    focus: "Claude技术深度、AI安全"
+    
+  - name: "Claude Blog"
+    url: "https://www.anthropic.com/news"
+    focus: "Claude产品更新、功能发布"
+    
+  - name: "OpenAI Blog"
+    url: "https://openai.com/blog"
+    focus: "GPT、DALL-E、API更新"
+    
+  - name: "Vercel Blog"
+    url: "https://vercel.com/blog"
+    focus: "v0、AI生成UI、部署"
+    
+  - name: "Google AI Blog"
+    url: "https://ai.googleblog.com"
+    focus: "Gemini、AI研究"
+
+# GitHub Trending / 项目
+github_repos:
+  - name: "awesome-vibe-coding"
+    search: "vibe coding tools 2026"
+    focus: "Vibe Coding工具合集"
+    
+  - name: "claude-code"
+    org: "anthropics"
+    focus: "Claude Code官方"
+    
+  - name: "cursor"
+    focus: "Cursor IDE"
+    
+  - name: "lovable"
+    focus: "Lovable.dev"
+
+# 播客
+podcasts:
+  - name: "Latent Space"
+    url: "https://www.latent.space"
+    focus: "AI工程、产品、研究"
+    
+  - name: "Training Data"
+    url: "https://trainingdata.fm"
+    focus: "AI数据、训练、产品"
+    
+  - name: "No Priors"
+    url: "https://www.nopriors.com"
+    focus: "AI创业、投资"
+    
+  - name: "Unsupervised Learning"
+    url: "https://unsupervisedlearning.ai"
+    focus: "AI新闻、工具评测"
+
+# 中文来源
+chinese_sources:
+  - name: "机器之心"
+    url: "https://www.jiqizhixin.com"
+    focus: "AI新闻、研究"
+    
+  - name: "InfoQ AI"
+    url: "https://www.infoq.cn/topic/AI"
+    focus: "AI技术、工程"
+    
+  - name: "量子位"
+    url: "https://www.qbitai.com"
+    focus: "AI产品、公司"
