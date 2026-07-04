@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>岗位看板 | AI智能推荐</title>
+<style>
+  :root { --bg:#0b1120; --card:#1e293b; --accent:#38bdf8; --text:#e2e8f0; --muted:#94a3b8; --border:#334155; --green:#4ade80; --purple:#c084fc; --orange:#fb923c; --red:#f87171; }
+  * { box-sizing:border-box; margin:0; padding:0; font-family:system-ui,-apple-system,sans-serif; }
+  body { background:var(--bg); color:var(--text); min-height:100vh; }
+  header { padding:24px 32px; border-bottom:1px solid var(--border); display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:16px; }
+  h1 { font-size:22px; display:flex; align-items:center; gap:10px; }
+  .badge { background:var(--accent); color:#0f172a; padding:4px 12px; border-radius:20px; font-size:12px; font-weight:700; }
+  .stats { display:flex; gap:24px; }
+  .stat { text-align:center; }
+  .stat-num { font-size:28px; font-weight:800; color:var(--accent); }
+  .stat-label { font-size:12px; color:var(--muted); margin-top:2px; }
+  .tabs { display:flex; gap:4px; padding:0 32px; margin-top:16px; border-bottom:1px solid var(--border); }
+  .tab { padding:10px 20px; background:transparent; border:none; color:var(--muted); font-size:14px; cursor:pointer; border-bottom:2px solid transparent; transition:all .15s; font-weight:600; }
+  .tab:hover { color:var(--text); }
+  .tab.active { color:var(--accent); border-bottom-color:var(--accent); }
+  .tab .count { background:var(--border); color:var(--muted); padding:2px 8px; border-radius:10px; font-size:11px; margin-left:6px; }
+  .filters { padding:20px 32px; display:flex; gap:12px; flex-wrap:wrap; align-items:center; }
+  .filters input, .filters select { background:var(--card); border:1px solid var(--border); color:var(--text); padding:10px 14px; border-radius:8px; font-size:14px; outline:none; }
+  .filters input { min-width:220px; }
+  .filters select { cursor:pointer; }
+  .filters button { background:var(--accent); color:#0f172a; border:none; padding:10px 20px; border-radius:8px; font-weight:700; cursor:pointer; font-size:14px; }
+  .grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(420px,1fr)); gap:16px; padding:0 32px 32px; }
+  .card { background:var(--card); border:1px solid var(--border); border-radius:12px; overflow:hidden; transition:transform .15s, border-color .15s; position:relative; }
+  .card:hover { transform:translateY(-2px); }
+  .card.recommended { border-color:var(--green); }
+  .card.not-recommended { border-color:var(--red); opacity:0.7; }
+  .card-body { padding:20px; cursor:pointer; }
+  .card-header { display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:10px; }
+  .company { font-size:13px; color:var(--muted); font-weight:600; }
+  .salary { color:#fbbf24; font-weight:800; font-size:15px; white-space:nowrap; }
+  .title { font-size:16px; font-weight:700; margin-bottom:8px; line-height:1.4; }
+  .tags { display:flex; gap:6px; flex-wrap:wrap; margin-bottom:10px; align-items:center; }
+  .tag { background:rgba(56,189,248,.12); color:var(--accent); padding:3px 10px; border-radius:6px; font-size:12px; }
+  .tag.city { background:rgba(34,197,94,.12); color:var(--green); }
+  .tag.type { background:rgba(168,85,247,.12); color:var(--purple); }
+  .tag.source { background:rgba(251,146,60,.12); color:var(--orange); }
+  .tag.status-good { background:rgba(34,197,94,.12); color:var(--green); }
+  .tag.status-pending { background:rgba(251,146,60,.12); color:var(--orange); }
+  .tag.status-bad { background:rgba(248,113,113,.12); color:var(--red); }
+  .score-badge { background:rgba(34,197,94,.2); color:var(--green); padding:2px 8px; border-radius:10px; font-size:11px; font-weight:700; }
+  .score-badge.low { background:rgba(251,146,60,.2); color:var(--orange); }
+  .score-badge.very-low { background:rgba(248,113,113,.2); color:var(--red); }
+  .desc { font-size:13px; color:var(--muted); line-height:1.6; display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; overflow:hidden; }
+  .card-footer { display:flex; justify-content:space-between; align-items:center; margin-top:12px; padding-top:12px; border-top:1px solid var(--border); }
+  .date { font-size:12px; color:var(--muted); }
+  .expand-hint { font-size:12px; color:var(--accent); }
+  .jd-panel { display:none; border-top:1px solid var(--border); background:rgba(15,23,42,.5); padding:20px; }
+  .jd-panel.open { display:block; }
+  .jd-title { font-size:13px; font-weight:700; color:var(--accent); margin-bottom:10px; display:flex; align-items:center; gap:6px; }
+  .search-info { font-size:12px; color:var(--orange); margin-bottom:10px; padding:8px 12px; background:rgba(251,146,60,.08); border-radius:6px; border:1px solid rgba(251,146,60,.2); }
+  .search-info strong { color:var(--orange); }
+  .jd-content { font-size:13px; line-height:1.8; color:var(--text); white-space:pre-wrap; margin-bottom:16px; max-height:300px; overflow-y:auto; }
+  .jd-actions { display:flex; gap:8px; flex-wrap:wrap; margin-bottom:12px; }
+  .btn { padding:8px 16px; border-radius:6px; font-size:13px; font-weight:600; cursor:pointer; border:none; text-decoration:none; display:inline-flex; align-items:center; gap:6px; }
+  .btn-copy { background:rgba(56,189,248,.15); color:var(--accent); }
+  .btn-copy:hover { background:rgba(56,189,248,.25); }
+  .btn-link { background:rgba(34,197,94,.15); color:var(--green); }
+  .btn-link:hover { background:rgba(34,197,94,.25); }
+  .btn-email { background:rgba(168,85,247,.15); color:var(--purple); }
+  .btn-email:hover { background:rgba(168,85,247,.25); }
+  .status-bar { display:flex; gap:8px; padding-top:12px; border-top:1px solid var(--border); }
+  .status-btn { flex:1; padding:8px; border-radius:6px; font-size:12px; font-weight:600; cursor:pointer; border:1px solid var(--border); background:var(--bg); color:var(--muted); text-align:center; transition:all .15s; }
+  .status-btn:hover { border-color:var(--accent); color:var(--accent); }
+  .status-btn.active-good { background:var(--green); color:#0f172a; border-color:var(--green); }
+  .status-btn.active-pending { background:var(--orange); color:#0f172a; border-color:var(--orange); }
+  .status-btn.active-bad { background:var(--red); color:#fff; border-color:var(--red); }
+  .reason-box { font-size:12px; padding:8px 12px; border-radius:6px; margin-bottom:10px; }
+  .reason-box.good { background:rgba(34,197,94,.1); color:var(--green); border:1px solid rgba(34,197,94,.3); }
+  .reason-box.bad { background:rgba(248,113,113,.1); color:var(--red); border:1px solid rgba(248,113,113,.3); }
+  .empty { text-align:center; padding:80px; color:var(--muted); font-size:16px; }
+  .toast { position:fixed; bottom:24px; right:24px; background:var(--accent); color:#0f172a; padding:12px 20px; border-radius:8px; font-weight:700; font-size:14px; opacity:0; transform:translateY(20px); transition:all .3s; pointer-events:none; z-index:1000; }
+  .toast.show { opacity:1; transform:translateY(0); }
+  .pref-summary { padding:12px 32px; background:rgba(56,189,248,.05); border-bottom:1px solid var(--border); font-size:13px; color:var(--muted); }
+  .pref-summary strong { color:var(--accent); }
+  @media (max-width:640px) { .grid { grid-template-columns:1fr; padding:0 16px 16px; } header { padding:16px; } .filters { padding:12px 16px; } .tabs { padding:0 16px; } }
+</style>
+</head>
+<body>
+<header>
+  <h1>🎯 岗位看板 <span class="badge">AI智能推荐</span></h1>
+  <div class="stats">
+    <div class="stat"><div class="stat-num" id="total">0</div><div class="stat-label">总岗位</div></div>
+    <div class="stat"><div class="stat-num" id="sz">0</div><div class="stat-label">深圳</div></div>
+    <div class="stat"><div class="stat-num" id="sh">0</div><div class="stat-label">上海</div></div>
+  </div>
+</header>
+
+<div class="tabs">
+  <button class="tab active" onclick="switchTab('all')">📋 全部<span class="count" id="cnt-all">0</span></button>
+  <button class="tab" onclick="switchTab('good')">🎯 适合投递<span class="count" id="cnt-good">0</span></button>
+  <button class="tab" onclick="switchTab('pending')">🤔 待定<span class="count" id="cnt-pending">0</span></button>
+  <button class="tab" onclick="switchTab('bad')">❌ 不合适<span class="count" id="cnt-bad">0</span></button>
+</div>
+
+<div class="pref-summary" id="pref-summary">
+  💡 点击岗位下方的按钮标记状态，AI会学习你的偏好并优化推荐
+</div>
+
+<div class="filters">
+  <input type="text" id="search" placeholder="🔍 搜索公司、岗位名称...">
+  <select id="filterCity">
+    <option value="">全部城市</option>
+    <option value="深圳">深圳</option>
+    <option value="上海">上海</option>
+  </select>
+  <select id="filterType">
+    <option value="">全部类型</option>
+    <option value="品牌营销">品牌营销</option>
+    <option value="产品运营">产品运营</option>
+    <option value="代理商管理">代理商管理</option>
+  </select>
+  <select id="filterSalary">
+    <option value="">全部薪资</option>
+    <option value="20">20k+</option>
+    <option value="30">30k+</option>
+    <option value="40">40k+</option>
+    <option value="50">50k+</option>
+  </select>
+  <button onclick="render()">🔄 刷新</button>
+  <button onclick="resetPreferences()" style="background:var(--border);color:var(--text);">🗑️ 重置偏好</button>
+</div>
+
+<div class="grid" id="grid"></div>
+
+<div class="toast" id="toast"></div>
+
+<script src="jobs-data.js"></script>
+<script src="preference-engine.js"></script>
+<script>
+let currentTab = 'all';
+
+function loadStatuses() {
+  try {
+    const saved = JSON.parse(localStorage.getItem('jobStatuses') || '{}');
+    jobs.forEach((j, i) => {
+      if (saved[i] !== undefined) j.status = saved[i];
+    });
+  } catch(e) {}
+}
+
+function saveStatus(index, status) {
+  jobs[index].status = status;
+  const saved = JSON.parse(localStorage.getItem('jobStatuses') || '{}');
+  saved[index] = status;
+  localStorage.setItem('jobStatuses', JSON.stringify(saved));
+  
+  // 调用偏好学习引擎
+  if (window.PreferenceEngine) {
+    PreferenceEngine.onJobMarked(index, status);
+  }
+  
+  render();
+  const msgs = { good: '已标记为"适合投递"，AI已学习你的偏好 ✅', pending: '已标记为"待定" ⏳', bad: '已标记为"不合适"，后续将减少类似推荐 ❌' };
+  showToast(msgs[status]);
+}
+
+function resetPreferences() {
+  if (confirm('确定要重置所有偏好设置吗？这将清空你的标记记录和AI学习数据。')) {
+    if (window.PreferenceEngine) {
+      PreferenceEngine.reset();
+    }
+    render();
+    showToast('偏好已重置');
+  }
+}
+
+function getMinSalary(s) {
+  const m = s.match(/(\d+)/);
+  return m ? parseInt(m[1]) : 0;
+}
+
+function showToast(msg) {
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.classList.add('show');
+  setTimeout(() => t.classList.remove('show'), 3000);
+}
+
+function copyText(text) {
+  navigator.clipboard.writeText(text).then(() => showToast('已复制到剪贴板 ✅'));
+}
+
+function toggleJD(id) {
+  const panel = document.getElementById('jd-' + id);
+  const isOpen = panel.classList.contains('open');
+  document.querySelectorAll('.jd-panel').forEach(p => p.classList.remove('open'));
+  if (!isOpen) panel.classList.add('open');
+}
+
+function switchTab(tab) {
+  currentTab = tab;
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  event.target.closest('.tab').classList.add('active');
+  render();
+}
+
+function render() {
+  const q = document.getElementById('search').value.toLowerCase();
+  const city = document.getElementById('filterCity').value;
+  const type = document.getElementById('filterType').value;
+  const sal = document.getElementById('filterSalary').value;
+  const grid = document.getElementById('grid');
+  grid.innerHTML = '';
+
+  let filtered = jobs.filter(j => {
+    if (currentTab === 'good' && j.status !== 'good') return false;
+    if (currentTab === 'pending' && j.status !== 'pending') return false;
+    if (currentTab === 'bad' && j.status !== 'bad') return false;
+    if (city && !j.city.includes(city)) return false;
+    if (type && !j.type.includes(type)) return false;
+    if (sal && getMinSalary(j.salary) < parseInt(sal)) return false;
+    if (q && !j.company.toLowerCase().includes(q) && !j.title.toLowerCase().includes(q)) return false;
+    return true;
+  });
+
+  // 更新统计
+  const all = jobs;
+  document.getElementById('total').textContent = all.length;
+  document.getElementById('sz').textContent = all.filter(j=>j.city.includes('深圳')).length;
+  document.getElementById('sh').textContent = all.filter(j=>j.city.includes('上海')).length;
+  document.getElementById('cnt-all').textContent = all.length;
+  document.getElementById('cnt-good').textContent = all.filter(j=>j.status === 'good').length;
+  document.getElementById('cnt-pending').textContent = all.filter(j=>j.status === 'pending').length;
+  document.getElementById('cnt-bad').textContent = all.filter(j=>j.status === 'bad').length;
+
+  // 更新偏好摘要
+  updatePrefSummary();
+
+  if (!filtered.length) {
+    const msgs = { all: '暂无岗位', good: '暂无"适合投递"岗位<br><span style="font-size:13px;color:var(--muted);">在"全部"标签下点击 🎯 适合投递 标记</span>', pending: '暂无"待定"岗位', bad: '暂无"不合适"岗位' };
+    grid.innerHTML = `<div class="empty">${msgs[currentTab] || '暂无岗位'}</div>`;
+    return;
+  }
+
+  // 使用偏好引擎排序（仅在"全部"标签下）
+  if (currentTab === 'all' && window.PreferenceEngine) {
+    filtered = PreferenceEngine.getRecommendedJobs(filtered);
+  }
+
+  filtered.forEach((j, idx) => {
+    const globalIdx = jobs.indexOf(j);
+    const card = document.createElement('div');
+    card.className = 'card';
+    const id = 'job-' + globalIdx;
+    const jdText = `公司：${j.company}\n岗位：${j.title}\n薪资：${j.salary}\n地点：${j.city}\n\n${j.jd}`;
+    const statusLabels = { good: '🎯 适合投递', pending: '🤔 待定', bad: '❌ 不合适' };
+    const statusClass = { good: 'status-good', pending: 'status-pending', bad: 'status-bad' };
+    const hasStatus = j.status && statusLabels[j.status];
+    
+    // 推荐分数
+    let scoreHtml = '';
+    let reasonHtml = '';
+    if (window.PreferenceEngine && currentTab === 'all' && j.score !== undefined) {
+      const scoreClass = j.score >= 70 ? '' : (j.score >= 40 ? 'low' : 'very-low');
+      scoreHtml = `<span class="score-badge ${scoreClass}">⭐ ${j.score}分</span>`;
+      
+      if (j.matchedKeywords && j.matchedKeywords.length > 0) {
+        reasonHtml = `<div class="reason-box good">🎯 匹配偏好: ${j.matchedKeywords.slice(0, 3).join(', ')}</div>`;
+      }
+      if (j.dislikedKeywords && j.dislikedKeywords.length > 0) {
+        reasonHtml = `<div class="reason-box bad">⚠️ 包含不喜欢的关键词: ${j.dislikedKeywords.slice(0, 3).join(', ')}</div>`;
+      }
+      
+      // 根据分数添加样式
+      if (j.score >= 70) card.classList.add('recommended');
+      else if (j.score < 30) card.classList.add('not-recommended');
+    }
+    
+    card.innerHTML = `
+      <div class="card-body" onclick="toggleJD('${id}')">
+        <div class="card-header">
+          <span class="company">${j.company}</span>
+          <span class="salary">💰 ${j.salary}</span>
+        </div>
+        <div class="title">${j.title}</div>
+        <div class="tags">
+          <span class="tag city">📍 ${j.city}</span>
+          <span class="tag type">${j.type}</span>
+          <span class="tag source">📡 ${j.source || '未知'}</span>
+          ${hasStatus ? `<span class="tag ${statusClass[j.status]}">${statusLabels[j.status]}</span>` : ''}
+          ${scoreHtml}
+        </div>
+        ${reasonHtml}
+        <div class="desc">${j.desc}</div>
+        <div class="card-footer">
+          <span class="date">${j.date}</span>
+          <span class="expand-hint">点击查看完整JD ↓</span>
+        </div>
+      </div>
+      <div class="jd-panel" id="jd-${id}">
+        <div class="jd-title">📋 完整职位描述</div>
+        <div class="search-info">
+          <strong>🔍 搜索建议：</strong>在 <strong>${j.source || '招聘平台'}</strong> 搜索「<strong>${j.searchKeyword || j.title}</strong>」<br>
+          <strong>🔗 链接：</strong>${j.link || '暂无'}
+        </div>
+        <div class="jd-content">${j.jd}</div>
+        <div class="jd-actions">
+          <button class="btn btn-copy" onclick="copyText(\`${jdText.replace(/`/g, '\\`')}\`)">📄 复制JD</button>
+          <a class="btn btn-link" href="${j.link || '#' }" target="_blank">🔗 投递链接</a>
+          ${j.email ? `<button class="btn btn-email" onclick="copyText('${j.email}')">📧 复制邮箱</button>` : ''}
+        </div>
+        <div style="font-size:12px;color:var(--muted);margin-bottom:8px;">点击标记该岗位，AI会学习你的偏好：</div>
+        <div class="status-bar">
+          <button class="status-btn ${j.status === 'good' ? 'active-good' : ''}" onclick="saveStatus(${globalIdx}, 'good')">🎯 适合投递</button>
+          <button class="status-btn ${j.status === 'pending' ? 'active-pending' : ''}" onclick="saveStatus(${globalIdx}, 'pending')">🤔 待定</button>
+          <button class="status-btn ${j.status === 'bad' ? 'active-bad' : ''}" onclick="saveStatus(${globalIdx}, 'bad')">❌ 不合适</button>
+        </div>
+      </div>
+    `;
+    grid.appendChild(card);
+  });
+}
+
+function updatePrefSummary() {
+  if (!window.PreferenceEngine) return;
+  const prefs = PreferenceEngine.loadPreferences();
+  const stats = prefs.stats;
+  const liked = prefs.liked;
+  
+  let summary = '';
+  if (stats.totalMarked === 0) {
+    summary = '💡 点击岗位下方的按钮标记状态，AI会学习你的偏好并优化推荐排序';
+  } else {
+    summary = `📊 已学习: ${stats.likedCount}个喜欢 | ${stats.dislikedCount}个不喜欢 | ${stats.pendingCount}个待定`;
+    if (liked.companies.length > 0) summary += ` | 偏好公司: ${liked.companies.slice(0, 3).join(', ')}`;
+    if (liked.keywords.length > 0) summary += ` | 偏好关键词: ${liked.keywords.slice(0, 3).join(', ')}`;
+  }
+  document.getElementById('pref-summary').innerHTML = summary;
+}
+
+// 事件监听
+document.getElementById('search').addEventListener('input', render);
+document.getElementById('filterCity').addEventListener('change', render);
+document.getElementById('filterType').addEventListener('change', render);
+document.getElementById('filterSalary').addEventListener('change', render);
+
+// 初始化
+loadStatuses();
+render();
+</script>
+</body>
+</html>

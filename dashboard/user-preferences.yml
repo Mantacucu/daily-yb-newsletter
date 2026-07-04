@@ -1,0 +1,63 @@
+# 用户偏好数据（每日更新）
+# 此文件由前端 preference-engine.js 导出，供后端搜集任务参考
+
+# 使用方式：
+# 1. 用户在求职看板标记岗位（适合投递/不合适/待定）
+# 2. preference-engine.js 自动学习偏好并保存到 localStorage
+# 3. 用户可手动导出此文件，或未来通过API同步
+# 4. 每日搜集任务读取此文件，根据偏好调整搜集策略
+
+liked:
+  companies: []        # 用户标记"适合投递"的公司
+  types: []            # 用户喜欢的岗位类型
+  cities:              # 用户偏好的城市
+    - 深圳
+    - 上海
+  keywords: []         # 用户偏好的关键词（从JD中提取）
+  industries: []       # 用户偏好的行业
+  salary_min: 20       # 最低薪资要求(k)
+
+disliked:
+  companies: []        # 用户标记"不合适"的公司
+  types: []            # 用户不喜欢的岗位类型
+  keywords: []         # 用户不喜欢的关键词
+  requirements:        # 用户排除的硬性要求
+    - 5年以上
+    - 10年以上
+
+# 搜集策略调整
+strategy:
+  # 基于喜欢推荐更多类似的（+30%变化）
+  expand_similar: true
+  
+  # 变化维度（在相似基础上增加30%差异）
+  variation:
+    company: 0.3        # 30%概率推荐不同公司但同类型的岗位
+    city: 0.2           # 20%概率推荐不同城市
+    salary_range: 0.2   # 薪资范围±20%
+    keywords: 0.3       # 关键词匹配度允许30%差异
+  
+  # 排除规则
+  exclude:
+    disliked_companies: true
+    disliked_types: true
+    disliked_keywords: true
+    hard_requirements:
+      - "5年以上"
+      - "10年以上"
+      - "8年以上"
+
+# 每日迭代日志
+iterations:
+  - date: "2026-07-03"
+    total_marked: 0
+    liked: 0
+    disliked: 0
+    pending: 0
+    note: "初始状态，等待用户标记"
+  - date: "2026-07-04"
+    total_marked: 0
+    liked: 0
+    disliked: 0
+    pending: 0
+    note: "今日搜集90个岗位，覆盖13家公司，已过滤5年+硬性要求岗位，等待用户标记"
