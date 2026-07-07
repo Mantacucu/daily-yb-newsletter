@@ -210,6 +210,298 @@
         "Pollo AI - Satori Graphics实测推荐的新兴AI设计工作流工具",
         "Midjourney v7 - 图像生成质量持续领先，新功能支持更精细的风格控制"
       ]
+    },
+    "2026-07-05": {
+      "date": "2026-07-05",
+      "theme": "AI时代的工作重构与创作者进化",
+      "featured": {
+        "channel": "Dan Koe",
+        "category": "成长",
+        "title": "工作的未来与新的高收入技能栈",
+        "titleEn": "The Future Of Work (& The New High-Income Skill Stack)",
+        "url": "https://www.youtube.com/watch?v=vCoGfisdS8Y",
+        "summary": "Dan Koe深入分析了2026年工作形态的根本性转变。传统雇佣模式正在瓦解，AI工具熟练度、战略思维和个人品牌成为新的高收入技能栈。多兴趣者的跨界能力组合溢价远超单一专精。",
+        "takeaways": [
+          "AI工具熟练度 + 战略思维 + 个人品牌 = 2026高收入技能栈",
+          "传统雇佣模式瓦解，一人公司成为新常态",
+          "多兴趣跨界者优势：写作+设计+营销+编程的组合溢价",
+          "从'卖时间'到'卖系统'的思维转变",
+          "Newsletter是2026年最值得投入的长期资产"
+        ],
+        "insight": "AI不会取代人类，但不会用AI的人将被取代。未来24个月是技能重构的关键窗口期。"
+      },
+      "channels": [
+        {
+          "channel": "Fireship",
+          "category": "AI",
+          "title": "我测试了所有AI编程助手（2026版）",
+          "url": "https://www.youtube.com/@Fireship",
+          "points": [
+            "Devin Desktop发布：Windsurf的继任者，Cognition收购后重新品牌化",
+            "Vibe Coding adoption战争结束：92%美国开发者每天用AI编码",
+            "从Copilots到Agents的进化：人类当架构师，AI当执行者",
+            "Context Engineering取代Prompt Engineering成为核心技能",
+            "生产环境警告：Replit删库、Lovable安全漏洞等真实案例"
+          ]
+        },
+        {
+          "channel": "Satori Graphics",
+          "category": "设计",
+          "title": "2026设计趋势：AI协作与数字粗粝美学",
+          "url": "https://www.youtube.com/@SatoriGraphics",
+          "points": [
+            "设计师角色从执行者进化为AI策展人与视觉战略师",
+            "Generative UI成为基线：v0.dev等工具即时生成界面",
+            "Digital Grunge兴起：人类不完美作为高端真实性的标志",
+            "Neuro-inclusive UX：神经多样性设计成为法律与市场双重要求",
+            "Sustainable UX：低碳设计成为技术优雅的直接指标"
+          ]
+        },
+        {
+          "channel": "Alex Garcia",
+          "category": "营销",
+          "title": "Newsletter增长复盘：从0到20万订阅的7位数媒体公司",
+          "url": "https://www.youtube.com/@AlexGarciaBuilds",
+          "points": [
+            "50 threads in 50 days：从500到40K followers的高密度内容冲刺",
+            "Snackable vs Entrees策略：社交平台发teaser，自有平台发完整内容",
+            "Newsletter的ROI远超社交媒体：直接拥有受众关系",
+            "深度案例 > 列表式内容：每周一个完整案例分析建立信任",
+            "内容飞轮：1个核心深度内容 = 10个衍生分发片段"
+          ]
+        },
+        {
+          "channel": "Kallaway",
+          "category": "营销",
+          "title": "7乐高积木框架：反向工程任何爆款视频",
+          "url": "https://www.youtube.com/@kallaway",
+          "points": [
+            "每个爆款视频可拆解为7个可复制组件",
+            "5个复制 + 2个改动：找到已验证结构，只替换角度和故事",
+            "YouTube应被当作专业运动而非副业",
+            "内容作为基础设施：可重复、可雇佣、可扩展",
+            "AI的真正价值：节省执行时间，但不替代策略判断"
+          ]
+        },
+        {
+          "channel": "Dan Koe",
+          "category": "成长",
+          "title": "如果2026年重新开始，我会如何构建一人公司",
+          "url": "https://www.youtube.com/watch?v=VyR8nqD3sQ8",
+          "points": [
+            "写作优先路径：文字是杠杆最高的内容形式",
+            "5个收入层级：自由职业(0-1K) -> 数字产品(1-5K) -> 课程+社群(5-20K) -> SaaS(20-50K) -> 投资组合(50K+)",
+            "关键瓶颈：从第2层到第3层需要'卖系统'而非'卖时间'",
+            "Newsletter是最有价值的资产",
+            "AI大幅降低一人创业门槛"
+          ]
+        }
+      ],
+      "aiTips": [
+        "Vibe Coding最佳实践：采用'Vibe & Verify'模式——AI处理常规任务，人类审查关键路径（认证、支付、数据删除）",
+        "Context Engineering入门：在.cursorrules或CLAUDE.md中定义技术栈和编码规范，让AI自动应用一致性规则",
+        "遇到bug时采用'Karpathy Move'：将完整错误信息和堆栈追踪提交给AI，而非描述问题——诊断准确率显著提高"
+      ],
+      "tools": [
+        "Devin Desktop：Cognition收购Windsurf后推出的下一代AI IDE，免费层提供无限自动补全",
+        "Google AI Studio：免费环境支持Gemini 2.0 Flash，上下文窗口达100万token，支持截图输入UI mockup",
+        "v0.dev：Vercel的生成式UI工具，文本提示即时生成React组件，设计到代码的零摩擦工作流"
+      ]
+    },
+    "2026-07-06": {
+      "date": "2026-07-06",
+      "theme": "Vibe Coding 工具格局与创作者进化",
+      "featured": {
+        "channel": "Kallaway",
+        "category": "营销",
+        "title": "The 1 Skill Nobody Teaches — 没有人教你的那个技能",
+        "titleEn": "The 1 Skill Nobody Teaches",
+        "url": "https://youtube.com/@kallawaymarketing",
+        "summary": "Kallaway在最新视频中指出，大多数人学了无数营销技巧却从未掌握真正核心技能——钩子写作（Copywriting）。从平台算法到用户注意力，所有竞争本质上都归结为谁能写出让人停下来的文案。",
+        "takeaways": [
+          "文案写作是一切营销的基础技能，却几乎没有系统课程",
+          "Hook写作的三层同步：信息层 + 情感层 + 好奇层",
+          "好文案不是'写得多好'，而是'让对的人停下来'",
+          "用AI辅助文案生成后，人类的核心价值在于'策展与筛选'",
+          "从50条失败文案中找规律，比模仿1条爆款更有效"
+        ],
+        "insight": "当AI可以批量生成'不错'的文案时，创作者的真正竞争力不再是'写出来'，而是'判断哪句能打动人'——这要求你对受众有深度理解，而这恰恰是AI无法替代的。"
+      },
+      "channels": [
+        {
+          "channel": "Fireship",
+          "category": "AI",
+          "title": "Replit Agent 3 is wild — Vibe Coding工具格局",
+          "url": "https://youtube.com/@Fireship",
+          "points": [
+            "Replit Agent 3支持200分钟自主运行，最接近真正自主开发者",
+            "Fireship核心观点：Vibe coding for the idea, Cursor for the paycheck",
+            "Replit估值$9B vs Cursor估值$29B，两个市场定位完全不同",
+            "非工程师用Replit，专业工程师用Cursor——分工已明确",
+            "MCP协议成为AI工具之间的标准纽带"
+          ]
+        },
+        {
+          "channel": "Dan Koe",
+          "category": "成长",
+          "title": "The Most Important Skill To Learn Right Now — 当下最重要的技能",
+          "url": "https://www.youtube.com/watch?v=18ahFtnuBwI",
+          "points": [
+            "Agency（自主性/迭代能力）是未来10年唯一不会过时的技能",
+            "Agency的定义：无需许可即可迭代的能力（iterate without permission）",
+            "通才（Generalist）将战胜专才（Specialist），因为技能总会被替代",
+            "五个根本人类能力：计算、转化、变异、选择、注意力",
+            "通过实践他人的agency直到能创造自己的agency"
+          ]
+        },
+        {
+          "channel": "Satori Graphics",
+          "category": "设计",
+          "title": "2026 Design Trends — 从AI策展人到视觉战略师",
+          "url": "https://youtube.com/@SatoriGraphics",
+          "points": [
+            "73%设计师认为AI协作是2026年最具影响力的趋势",
+            "角色转变：从执行者到AI策展人与视觉战略师",
+            "Digital Grunge兴起：人类不完美成为高端真实性的标志",
+            "Generative UI成为基线：v0.dev等工具即时生成界面",
+            "Neuro-inclusive UX：神经多样性设计成为法律与市场双重要求"
+          ]
+        },
+        {
+          "channel": "Alex Garcia",
+          "category": "营销",
+          "title": "Newsletter增长复盘：从0到20万订阅的7位数媒体公司",
+          "url": "https://youtube.com/@AlexGarciaBuilds",
+          "points": [
+            "50 threads in 50 days：从500到40K followers的高密度内容冲刺",
+            "Snackable vs Entrees策略：社交平台发teaser，自有平台发完整内容",
+            "Newsletter的ROI远超社交媒体：直接拥有受众关系",
+            "深度案例 > 列表式内容：每周一个完整案例分析建立信任",
+            "内容飞轮：1个核心深度内容 = 10个衍生分发片段"
+          ]
+        },
+        {
+          "channel": "Dan Koe",
+          "category": "成长",
+          "title": "How I'd build a one-person business (if I started over in 2026)",
+          "url": "https://www.youtube.com/watch?v=VyR8nqD3sQ8",
+          "points": [
+            "写作优先路径：文字是杠杆最高的内容形式",
+            "5个收入层级：自由职业(0-1K) -> 数字产品(1-5K) -> 课程+社群(5-20K) -> SaaS(20-50K) -> 投资组合(50K+)",
+            "关键瓶颈：从第2层到第3层需要'卖系统'而非'卖时间'",
+            "Newsletter是最值得投入的长期资产",
+            "AI大幅降低一人创业门槛"
+          ]
+        }
+      ],
+      "aiTips": [
+        "Vibe Coding最佳实践：采用'Vibe & Verify'模式——AI处理常规任务，人类审查关键路径（认证、支付、数据删除）",
+        "Context Engineering入门：在.cursorrules或CLAUDE.md中定义技术栈和编码规范，让AI自动应用一致性规则",
+        "遇到bug时采用'Karpathy Move'：将完整错误信息和堆栈追踪提交给AI，而非描述问题——诊断准确率显著提高"
+      ],
+      "tools": [
+        "Devin Desktop：Cognition收购Windsurf后推出的下一代AI IDE，免费层提供无限自动补全",
+        "Google AI Studio：免费环境支持Gemini 2.0 Flash，上下文窗口达100万token，支持截图输入UI mockup",
+        "v0.dev：Vercel的生成式UI工具，文本提示即时生成React组件，设计到代码的零摩擦工作流"
+      ]
+    },
+    "2026-07-07": {
+      "date": "2026-07-07",
+      "theme": "AI 模型格局剧变与创作者工作流",
+      "featured": {
+        "channel": "Fello AI",
+        "category": "AI",
+        "title": "Claude Fable 5 回归 — AI 模型格局重新洗牌",
+        "titleEn": "Claude Fable 5 Back Online - AI Model Landscape Reshuffled",
+        "url": "https://felloai.com/best-ai-models/",
+        "summary": "7月1日，Anthropic 重新部署了 Claude Fable 5（Mythos 级旗舰模型），此前因美国 6 月 12 日的出口管制令而离线近三周。同时，Claude Sonnet 5 于 6 月 30 日成为默认模型，在写作基准上超越 Opus 4.8。AI 模型竞争进入白热化阶段。",
+        "takeaways": [
+          "Claude Fable 5 回归，编码能力最强：SWE-Bench Pro 80.3%",
+          "Claude Sonnet 5 成为新默认，写作基准超越 Opus 4.8",
+          "GPT-5.6 家族（Sol/Terra/Luna）6月26日预览，仅20家机构可用",
+          "Grok 4.5 私人测试版曝光，发布日期未定",
+          "美团开源 LongCat-2.0：1.6 万亿参数，纯国产芯片训练"
+        ],
+        "insight": "模型格局变化越来越快，但「可用性」比「参数规模」更重要。Claude Sonnet 5 成为默认说明 Anthropic 在「日常可用性」上找到了甜点。对创作者来说，与其追逐最新模型，不如建立「模型切换」工作流——不同任务用不同模型，而不是all-in-one。"
+      },
+      "channels": [
+        {
+          "channel": "Andrej Karpathy",
+          "category": "AI",
+          "title": "AI 教育新范式 — 从神经网络到日常应用",
+          "url": "https://youtube.com/@AndrejKarpathy",
+          "points": [
+            "大模型本质上是「下一个token预测」的压缩世界知识",
+            "理解AI的关键不是数学，而是理解「概率分布」和「涌现能力」",
+            "未来编程：从写代码到「描述意图 + 审查结果」",
+            "Karpathy 的「Vibe Coding」定义：用自然语言驱动代码生成",
+            "AI 辅助学习：让模型解释直到你真正理解，而非记住答案"
+          ]
+        },
+        {
+          "channel": "Kallaway",
+          "category": "营销",
+          "title": "The 1 Skill Nobody Teaches — 没有人教你的核心技能",
+          "url": "https://youtube.com/@kallaway",
+          "points": [
+            "文案写作（Copywriting）是一切营销的基础，却几乎没有系统课程",
+            "Hook 写作的三层同步：信息层 + 情感层 + 好奇层",
+            "好文案不是「写得多好」，而是「让对的人停下来」",
+            "AI 辅助文案后，人类核心价值在于「策展与筛选」",
+            "从 50 条失败文案中找规律，比模仿 1 条爆款更有效"
+          ]
+        },
+        {
+          "channel": "Fireship",
+          "category": "AI",
+          "title": "Gemini Spark vs Claude Cowork — AI Agent 终极对决",
+          "url": "https://youtube.com/@Fireship",
+          "points": [
+            "Gemini Spark：首个 24/7 云端常驻 Agent，$100/月 Ultra 版",
+            "Claude Cowork：桌面级 Agent，直接驱动本地应用，$20/月 Pro",
+            "ChatGPT Codex Mobile：手机端编码 Agent，iOS/Android 可用",
+            "Grok Agentic：实时 X 数据 + 网络研究，$30/月 SuperGrok",
+            "AI Agent 是 2026 年发展最快的类别，每个厂商都在推 Agent 产品"
+          ]
+        },
+        {
+          "channel": "Dan Koe",
+          "category": "成长",
+          "title": "The Agency Advantage — 为什么自主性是唯一不贬值的技能",
+          "url": "https://youtube.com/@DanKoe",
+          "points": [
+            "Agency（自主性）= 无需许可即可迭代的能力",
+            "通才（Generalist）将战胜专才（Specialist），因为技能总会被替代",
+            "五个根本人类能力：计算、转化、变异、选择、注意力",
+            "通过「实践他人的 agency」直到能创造自己的 agency",
+            "AI 时代，「知道做什么」比「知道怎么做」更重要"
+          ]
+        },
+        {
+          "channel": "Mizko",
+          "category": "设计",
+          "title": "Vibe Design 实战 — 从 Figma 到 AI 生成界面",
+          "url": "https://youtube.com/@mizko",
+          "points": [
+            "Generative UI 成为基线：v0.dev、Bolt 等工具即时生成界面",
+            "设计师角色转变：从「画界面」到「策展 AI 输出」",
+            "Digital Grunge 趋势：人类不完美成为高端真实性的标志",
+            "Neuro-inclusive UX：神经多样性设计成为法律与市场双重要求",
+            "AI 不会取代设计师，但「会用 AI 的设计师」会取代「不会用的」"
+          ]
+        }
+      ],
+      "aiTips": [
+        "模型选择策略：日常聊天用 GPT-5.5，编码用 Claude Fable 5，写作用 Claude Sonnet 5，研究用 Gemini 3.1 Pro",
+        "Context Engineering：在 .cursorrules 或 CLAUDE.md 中定义技术栈，让 AI 自动应用一致性规则",
+        "Karpathy Move：遇到 bug 时提交完整错误信息 + 堆栈追踪，而非描述问题——诊断准确率显著提高",
+        "AI Agent 工作流：云端 Agent（Gemini Spark）处理后台任务，桌面 Agent（Claude Cowork）处理本地应用"
+      ],
+      "tools": [
+        "Gemini Spark：首个 24/7 云端常驻 Agent，Google AI Ultra $100/月",
+        "Claude Cowork：桌面级 Agent，驱动本地应用，Claude Pro $20/月",
+        "ChatGPT Codex Mobile：手机端编码 Agent，iOS/Android 可用"
+      ]
     }
   }
 }

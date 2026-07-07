@@ -1054,7 +1054,118 @@ Format:
 </div>
 
 <script>
-// === Date ===
+// === Dynamic Load from archive.json ===
+async function loadLatest() {
+  try {
+    const res = await fetch('data/archive.json');
+    const data = await res.json();
+    const entries = Object.entries(data.entries || {});
+    if (entries.length === 0) return;
+    entries.sort((a, b) => b[0].localeCompare(a[0]));
+    const [latestDate, entry] = entries[0];
+
+    // Update date
+    document.getElementById('date').textContent = new Date(latestDate + 'T00:00:00').toLocaleDateString('en-US', {
+      year: 'numeric', month: 'long', day: 'numeric'
+    });
+
+    // Render featured
+    const featured = entry.featured;
+    if (featured) {
+      const featuredHTML = `
+        <div class="pick-label">Editor's Pick</div>
+        <h3>${featured.title}</h3>
+        <div class="subtitle">${featured.titleEn || ''}</div>
+        <p class="body-cn">${featured.summary}</p>
+        <a href="${featured.url}" target="_blank">Watch on YouTube</a>
+        <ul class="bullet-list">
+          ${(featured.takeaways || []).map(t => `<li>${t}</li>`).join('')}
+        </ul>
+        ${featured.insight ? `
+        <div class="insight">
+          <h5>延伸思考 Extended Thought</h5>
+          <p class="cn">${featured.insight}</p>
+        </div>` : ''}
+      `;
+      const pickEl = document.querySelector('#featured .pick');
+      if (pickEl) pickEl.innerHTML = featuredHTML;
+    }
+
+    // Render channels into sections by category
+    const channels = entry.channels || [];
+    const sectionMap = {
+      '营销': 'marketing',
+      '设计': 'design',
+      'AI': 'ai',
+      '成长': 'growth'
+    };
+
+    for (const [catName, sectionId] of Object.entries(sectionMap)) {
+      const catChannels = channels.filter(c => c.category === catName);
+      const section = document.getElementById(sectionId);
+      if (!section || catChannels.length === 0) continue;
+
+      // Keep section head, remove rest
+      const head = section.querySelector('.section-head');
+      section.innerHTML = '';
+      if (head) section.appendChild(head);
+
+      for (const ch of catChannels) {
+        const articleHTML = `
+          <div class="article">
+            <div class="article-tag">${ch.category}</div>
+            <h3>${ch.channel}: ${ch.title}</h3>
+            <a href="${ch.url}" class="article-link" target="_blank">Watch on YouTube</a>
+            <ul class="bullet-list">
+              ${(ch.points || []).map(p => `<li>${p}</li>`).join('')}
+            </ul>
+          </div>
+        `;
+        section.insertAdjacentHTML('beforeend', articleHTML);
+      }
+    }
+
+    // Render AI Tips
+    if (entry.aiTips && entry.aiTips.length) {
+      const aiSection = document.getElementById('ai');
+      if (aiSection) {
+        aiSection.insertAdjacentHTML('beforeend', `
+          <div class="article">
+            <div class="article-tag">Practitioner Tips</div>
+            <h3>Vibe Coding Practical Tips</h3>
+            <ul class="bullet-list">
+              ${entry.aiTips.map(t => `<li>${t}</li>`).join('')}
+            </ul>
+          </div>
+        `);
+      }
+    }
+
+    // Render Tools
+    if (entry.tools && entry.tools.length) {
+      const aiSection = document.getElementById('ai');
+      if (aiSection) {
+        aiSection.insertAdjacentHTML('beforeend', `
+          <div class="article">
+            <div class="article-tag">Tool Recommendations</div>
+            <h3>Tools of the Day</h3>
+            <ul class="bullet-list">
+              ${entry.tools.map(t => `<li>${t}</li>`).join('')}
+            </ul>
+          </div>
+        `);
+      }
+    }
+
+  } catch (e) {
+    console.error('Failed to load archive:', e);
+    // Fallback: use static content
+  }
+}
+
+loadLatest();
+
+// === Date (fallback) ===
 document.getElementById('date').textContent = new Date().toLocaleDateString('en-US', {
   year: 'numeric', month: 'long', day: 'numeric'
 });

@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>2026-07-07 | YB日报</title>
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  :root {
+    --bg: #ffffff;
+    --surface: #fafafa;
+    --text: #1d1d1f;
+    --muted: #86868b;
+    --light: #d2d2d7;
+    --accent: #0071e3;
+    --radius: 12px;
+  }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+  }
+  header {
+    padding: 32px;
+    text-align: center;
+    border-bottom: 1px solid var(--light);
+  }
+  .logo { font-size: 24px; font-weight: 700; letter-spacing: -0.5px; }
+  .date { font-size: 13px; color: var(--muted); margin-top: 4px; }
+  .back {
+    display: inline-block;
+    margin-top: 12px;
+    font-size: 13px;
+    color: var(--accent);
+    text-decoration: none;
+  }
+  main {
+    max-width: 680px;
+    margin: 0 auto;
+    padding: 40px 32px 80px;
+  }
+  .section { margin-bottom: 48px; }
+  .section-head {
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+    margin-bottom: 24px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--light);
+  }
+  .section-title { font-size: 20px; font-weight: 700; letter-spacing: -0.3px; }
+  .section-sub { font-size: 13px; color: var(--muted); }
+  .featured {
+    background: var(--surface);
+    border-radius: var(--radius);
+    padding: 28px;
+  }
+  .featured-label {
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--accent);
+    margin-bottom: 12px;
+  }
+  .featured h2 {
+    font-size: 22px;
+    font-weight: 700;
+    line-height: 1.3;
+    margin-bottom: 12px;
+  }
+  .featured .summary {
+    font-size: 15px;
+    color: var(--muted);
+    line-height: 1.7;
+    margin-bottom: 16px;
+  }
+  .featured a {
+    color: var(--accent);
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+  }
+  .bullet-list {
+    list-style: none;
+    margin-top: 20px;
+  }
+  .bullet-list li {
+    padding: 10px 0;
+    padding-left: 16px;
+    position: relative;
+    font-size: 14px;
+    line-height: 1.7;
+    border-bottom: 1px solid rgba(0,0,0,0.04);
+  }
+  .bullet-list li:last-child { border-bottom: none; }
+  .bullet-list li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 18px;
+    width: 5px;
+    height: 5px;
+    background: var(--text);
+    border-radius: 50%;
+  }
+  .card {
+    padding: 24px 0;
+    border-bottom: 1px solid var(--light);
+  }
+  .card:last-child { border-bottom: none; }
+  .card-tag {
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    color: var(--muted);
+    margin-bottom: 8px;
+  }
+  .card h3 {
+    font-size: 17px;
+    font-weight: 600;
+    margin-bottom: 12px;
+    line-height: 1.4;
+  }
+  .card a {
+    font-size: 14px;
+    color: var(--accent);
+    text-decoration: none;
+    font-weight: 500;
+  }
+  .insight {
+    margin-top: 20px;
+    padding: 16px;
+    background: var(--bg);
+    border: 1px solid var(--light);
+    border-radius: 8px;
+  }
+  .insight h4 {
+    font-size: 11px;
+    color: var(--accent);
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    margin-bottom: 8px;
+    font-weight: 600;
+  }
+  .insight p {
+    font-size: 14px;
+    line-height: 1.6;
+  }
+  @media (max-width: 768px) {
+    main { padding: 24px 20px 60px; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="logo">YB日报</div>
+  <div class="date">2026-07-07</div>
+  <a class="back" href="../index.html">返回今日</a>
+</header>
+
+<main>
+
+<div class="section">
+  <div class="section-head">
+    <div class="section-title">今日精选</div>
+    <div class="section-sub">AI 模型格局剧变与创作者工作流</div>
+  </div>
+  <div class="featured">
+    <div class="featured-label">Editor's Pick</div>
+    <h2>Claude Fable 5 回归 — AI 模型格局重新洗牌</h2>
+    <div class="summary">7月1日，Anthropic 重新部署了 Claude Fable 5（Mythos 级旗舰模型），此前因美国 6 月 12 日的出口管制令而离线近三周。同时，Claude Sonnet 5 于 6 月 30 日成为默认模型，在写作基准上超越 Opus 4.8。AI 模型竞争进入白热化阶段。</div>
+    <a href="https://felloai.com/best-ai-models/" target="_blank">阅读完整对比</a>
+    <ul class="bullet-list">
+      <li>Claude Fable 5 回归，编码能力最强：SWE-Bench Pro 80.3%</li>
+      <li>Claude Sonnet 5 成为新默认，写作基准超越 Opus 4.8</li>
+      <li>GPT-5.6 家族（Sol/Terra/Luna）6月26日预览，仅20家机构可用</li>
+      <li>Grok 4.5 私人测试版曝光，发布日期未定</li>
+      <li>美团开源 LongCat-2.0：1.6 万亿参数，纯国产芯片训练</li>
+    </ul>
+    
+    <div class="insight">
+      <h4>延伸思考</h4>
+      <p>模型格局变化越来越快，但「可用性」比「参数规模」更重要。Claude Sonnet 5 成为默认说明 Anthropic 在「日常可用性」上找到了甜点。对创作者来说，与其追逐最新模型，不如建立「模型切换」工作流——不同任务用不同模型，而不是all-in-one。</p>
+    </div>
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-head">
+    <div class="section-title">频道精选</div>
+    <div class="section-sub">5 个频道</div>
+  </div>
+  
+    <div class="card">
+      <div class="card-tag">AI</div>
+      <h3>Andrej Karpathy: AI 教育新范式 — 从神经网络到日常应用</h3>
+      <ul class="bullet-list">
+        <li>大模型本质上是「下一个token预测」的压缩世界知识</li>
+        <li>理解AI的关键不是数学，而是理解「概率分布」和「涌现能力」</li>
+        <li>未来编程：从写代码到「描述意图 + 审查结果」</li>
+        <li>Karpathy 的「Vibe Coding」定义：用自然语言驱动代码生成</li>
+        <li>AI 辅助学习：让模型解释直到你真正理解，而非记住答案</li>
+      </ul>
+      <a href="https://youtube.com/@AndrejKarpathy" target="_blank">观看视频</a>
+    </div>
+  
+    <div class="card">
+      <div class="card-tag">营销</div>
+      <h3>Kallaway: The 1 Skill Nobody Teaches — 没有人教你的核心技能</h3>
+      <ul class="bullet-list">
+        <li>文案写作（Copywriting）是一切营销的基础，却几乎没有系统课程</li>
+        <li>Hook 写作的三层同步：信息层 + 情感层 + 好奇层</li>
+        <li>好文案不是「写得多好」，而是「让对的人停下来」</li>
+        <li>AI 辅助文案后，人类核心价值在于「策展与筛选」</li>
+        <li>从 50 条失败文案中找规律，比模仿 1 条爆款更有效</li>
+      </ul>
+      <a href="https://youtube.com/@kallaway" target="_blank">观看视频</a>
+    </div>
+  
+    <div class="card">
+      <div class="card-tag">AI</div>
+      <h3>Fireship: Gemini Spark vs Claude Cowork — AI Agent 终极对决</h3>
+      <ul class="bullet-list">
+        <li>Gemini Spark：首个 24/7 云端常驻 Agent，$100/月 Ultra 版</li>
+        <li>Claude Cowork：桌面级 Agent，直接驱动本地应用，$20/月 Pro</li>
+        <li>ChatGPT Codex Mobile：手机端编码 Agent，iOS/Android 可用</li>
+        <li>Grok Agentic：实时 X 数据 + 网络研究，$30/月 SuperGrok</li>
+        <li>AI Agent 是 2026 年发展最快的类别，每个厂商都在推 Agent 产品</li>
+      </ul>
+      <a href="https://youtube.com/@Fireship" target="_blank">观看视频</a>
+    </div>
+  
+    <div class="card">
+      <div class="card-tag">成长</div>
+      <h3>Dan Koe: The Agency Advantage — 为什么自主性是唯一不贬值的技能</h3>
+      <ul class="bullet-list">
+        <li>Agency（自主性）= 无需许可即可迭代的能力</li>
+        <li>通才（Generalist）将战胜专才（Specialist），因为技能总会被替代</li>
+        <li>五个根本人类能力：计算、转化、变异、选择、注意力</li>
+        <li>通过「实践他人的 agency」直到能创造自己的 agency</li>
+        <li>AI 时代，「知道做什么」比「知道怎么做」更重要</li>
+      </ul>
+      <a href="https://youtube.com/@DanKoe" target="_blank">观看视频</a>
+    </div>
+  
+    <div class="card">
+      <div class="card-tag">设计</div>
+      <h3>Mizko: Vibe Design 实战 — 从 Figma 到 AI 生成界面</h3>
+      <ul class="bullet-list">
+        <li>Generative UI 成为基线：v0.dev、Bolt 等工具即时生成界面</li>
+        <li>设计师角色转变：从「画界面」到「策展 AI 输出」</li>
+        <li>Digital Grunge 趋势：人类不完美成为高端真实性的标志</li>
+        <li>Neuro-inclusive UX：神经多样性设计成为法律与市场双重要求</li>
+        <li>AI 不会取代设计师，但「会用 AI 的设计师」会取代「不会用的」</li>
+      </ul>
+      <a href="https://youtube.com/@mizko" target="_blank">观看视频</a>
+    </div>
+  
+</div>
+
+<div class="section">
+  <div class="section-head">
+    <div class="section-title">AI 快讯</div>
+  </div>
+  <div class="featured">
+    <ul class="bullet-list">
+      <li>Google DeepMind CEO Demis Hassabis 与 OpenAI CEO Sam Altman、Anthropic CEO Dario Amodei 首次同时出席 G7 峰会，讨论 AI 安全承诺</li>
+      <li>Google 与 SpaceX Colossus 签订 $920M/月 计算协议，确保 AI 训练能力独立于 AWS 和 Azure</li>
+      <li>免费 AI 精通指南（Gemini/Claude/OpenAI）持续更新，降低团队 AI 培训成本</li>
+      <li>Gemini 3.5 Pro  cleared for 7 月公开发布，此前从 6 月推迟</li>
+    </ul>
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-head">
+    <div class="section-title">AI / Coding Tips</div>
+  </div>
+  <div class="featured">
+    <ul class="bullet-list">
+      <li>模型选择策略：日常聊天用 GPT-5.5，编码用 Claude Fable 5，写作用 Claude Sonnet 5，研究用 Gemini 3.1 Pro</li>
+      <li>Context Engineering：在 .cursorrules 或 CLAUDE.md 中定义技术栈，让 AI 自动应用一致性规则</li>
+      <li>Karpathy Move：遇到 bug 时提交完整错误信息 + 堆栈追踪，而非描述问题——诊断准确率显著提高</li>
+      <li>AI Agent 工作流：云端 Agent（Gemini Spark）处理后台任务，桌面 Agent（Claude Cowork）处理本地应用</li>
+    </ul>
+  </div>
+</div>
+
+</main>
+
+</body>
+</html>
