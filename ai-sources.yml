@@ -1,106 +1,94 @@
 # AI / Vibe Coding / Vibe Design 资讯来源配置
-# 参考 follow-builders 模式：追踪真正在建设的人
+# 按天轮换，避免重复
 
-# Twitter/X 建设者（真正在做产品的人）
-twitter_builders:
-  - name: "Andrej Karpathy"
-    handle: "@karpathy"
-    focus: "AI教育、LLM、神经网络"
-    
-  - name: "Swyx"
-    handle: "@swyx"
-    focus: "AI工程、Latent Space播客"
-    
-  - name: "Pieter Levels"
-    handle: "@levelsio"
-    focus: "一人公司、AI产品、数字游民"
-    
-  - name: "Guillermo Rauch"
-    handle: "@rauchg"
-    focus: "Vercel、Web开发、AI工具"
-    
-  - name: "Amjad Masad"
-    handle: "@amasad"
-    focus: "Replit、Vibe Coding"
-    
-  - name: "Simon Willison"
-    handle: "@simonw"
-    focus: "AI工具、数据新闻、Python"
-    
-  - name: "Logan Kilpatrick"
-    handle: "@OfficialLoganK"
-    focus: "Google AI、开发者关系"
-    
-  - name: "Alex Albert"
-    handle: "@alexalbert__"
-    focus: "Claude、Anthropic产品"
+# === 轮换规则 ===
+# 周一/周四：Anthropic/Claude + X建设者动态
+# 周二/周五：OpenAI/GPT + Product Hunt
+# 周三/周六：Vercel/Google + GitHub Trending
+# 周日：综合回顾
 
-# 官方博客
-blogs:
-  - name: "Anthropic Engineering"
-    url: "https://www.anthropic.com/engineering"
-    focus: "Claude技术深度、AI安全"
-    
-  - name: "Claude Blog"
-    url: "https://www.anthropic.com/news"
-    focus: "Claude产品更新、功能发布"
-    
-  - name: "OpenAI Blog"
-    url: "https://openai.com/blog"
-    focus: "GPT、DALL-E、API更新"
-    
-  - name: "Vercel Blog"
-    url: "https://vercel.com/blog"
-    focus: "v0、AI生成UI、部署"
-    
-  - name: "Google AI Blog"
-    url: "https://ai.googleblog.com"
-    focus: "Gemini、AI研究"
+# === 周一/四来源 ===
+monday_thursday:
+  twitter_builders:
+    - name: "Andrej Karpathy"
+      handle: "@karpathy"
+      focus: "AI教育、LLM、神经网络"
+    - name: "Alex Albert"
+      handle: "@alexalbert__"
+      focus: "Claude、Anthropic产品"
+    - name: "Simon Willison"
+      handle: "@simonw"
+      focus: "AI工具、数据新闻"
+  blogs:
+    - name: "Anthropic Engineering"
+      url: "https://www.anthropic.com/engineering"
+    - name: "Claude Blog"
+      url: "https://www.anthropic.com/news"
 
-# GitHub Trending / 项目
-github_repos:
-  - name: "awesome-vibe-coding"
-    search: "vibe coding tools 2026"
-    focus: "Vibe Coding工具合集"
-    
-  - name: "claude-code"
-    org: "anthropics"
-    focus: "Claude Code官方"
-    
-  - name: "cursor"
-    focus: "Cursor IDE"
-    
-  - name: "lovable"
-    focus: "Lovable.dev"
+# === 周二/五来源 ===
+tuesday_friday:
+  twitter_builders:
+    - name: "Swyx"
+      handle: "@swyx"
+      focus: "AI工程、Latent Space播客"
+    - name: "Guillermo Rauch"
+      handle: "@rauchg"
+      focus: "Vercel、Web开发、AI工具"
+    - name: "Amjad Masad"
+      handle: "@amasad"
+      focus: "Replit、Vibe Coding"
+  blogs:
+    - name: "OpenAI Blog"
+      url: "https://openai.com/blog"
+    - name: "Vercel Blog"
+      url: "https://vercel.com/blog"
+  products:
+    - name: "Product Hunt"
+      url: "https://www.producthunt.com"
+      focus: "每日最佳新产品"
 
-# 播客
-podcasts:
-  - name: "Latent Space"
-    url: "https://www.latent.space"
-    focus: "AI工程、产品、研究"
-    
-  - name: "Training Data"
-    url: "https://trainingdata.fm"
-    focus: "AI数据、训练、产品"
-    
-  - name: "No Priors"
-    url: "https://www.nopriors.com"
-    focus: "AI创业、投资"
-    
-  - name: "Unsupervised Learning"
-    url: "https://unsupervisedlearning.ai"
-    focus: "AI新闻、工具评测"
+# === 周三/六来源 ===
+wednesday_saturday:
+  twitter_builders:
+    - name: "Pieter Levels"
+      handle: "@levelsio"
+      focus: "一人公司、AI产品"
+    - name: "Logan Kilpatrick"
+      handle: "@OfficialLoganK"
+      focus: "Google AI、开发者关系"
+  blogs:
+    - name: "Google AI Blog"
+      url: "https://ai.googleblog.com"
+    - name: "GitHub Blog"
+      url: "https://github.blog"
+  github_repos:
+    - name: "awesome-vibe-coding"
+      search: "vibe coding tools 2026"
+    - name: "claude-code"
+      org: "anthropics"
+    - name: "cursor"
+      focus: "Cursor IDE"
 
-# 中文来源
+# === 周日来源（综合） ===
+sunday:
+  podcasts:
+    - name: "Latent Space"
+      url: "https://www.latent.space"
+    - name: "Training Data"
+      url: "https://trainingdata.fm"
+    - name: "No Priors"
+      url: "https://www.nopriors.com"
+
+# === 中文来源（每天可用） ===
 chinese_sources:
   - name: "机器之心"
     url: "https://www.jiqizhixin.com"
-    focus: "AI新闻、研究"
-    
   - name: "InfoQ AI"
     url: "https://www.infoq.cn/topic/AI"
-    focus: "AI技术、工程"
-    
   - name: "量子位"
     url: "https://www.qbitai.com"
-    focus: "AI产品、公司"
+
+# === 去重规则 ===
+# - AI Tips 过去7天出现过的不再推荐
+# - Tools 过去14天出现过的不再推荐
+# - 同一来源（blog/podcast）每3天最多出现1次

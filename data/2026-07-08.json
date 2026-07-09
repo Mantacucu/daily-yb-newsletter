@@ -1,0 +1,82 @@
+{
+  "date": "2026-07-08",
+  "theme": "AI重塑一切：从搜索可见性到技能栈",
+  "featured": {
+    "channel": "Lex Fridman",
+    "category": "AI",
+    "title": "#490 – State of AI in 2026: LLMs, Coding, Scaling Laws, China, Agents, GPUs, AGI",
+    "url": "https://www.youtube.com/@lexfridman",
+    "summary": "Lex Fridman与Nathan Lambert和Sebastian Raschka深度对话，全面盘点2026年AI领域的最新进展。从LLM的能力边界到AI Agents的商用落地，从Scaling Laws是否继续有效到中美AI竞争格局，这是一次对AI现状最系统的梳理。",
+    "takeaways": [
+      "2026年LLM在编码任务上的准确率已突破关键阈值，AI辅助编程成为默认工作流",
+      "Scaling Laws并未见顶，但数据质量和训练方法的创新比单纯堆参数更重要",
+      "AI Agents从Demo走向生产环境，核心挑战是可靠性和上下文记忆",
+      "中国AI模型在特定领域已具备竞争力，全球AI格局呈现多极化",
+      "GPU算力仍是瓶颈，专用AI芯片和分布式训练成为新焦点"
+    ],
+    "insight": "AI不再只是工具，而是正在重塑工作本身的定义。Fridman嘉宾提到的'High-Income Skill Stack'正在被AI重构——不是取代人类，而是让'会用AI的人'替代'不会用AI的人'。"
+  },
+  "channels": [
+    {
+      "channel": "Neil Patel",
+      "category": "营销",
+      "title": "Your Business is Invisible to AI (How To Fix it)",
+      "url": "https://www.youtube.com/@NeilPatel",
+      "points": [
+        "AI搜索（如ChatGPT、Perplexity）正在取代传统搜索，企业需要优化'AI可见性'",
+        "结构化数据、实体识别和知识图谱成为SEO的新基础设施",
+        "内容策略从'关键词导向'转向'问题-答案导向'，适配AI摘要生成",
+        "品牌需要在多个可信来源（维基百科、权威媒体、行业数据库）建立数字足迹",
+        "语音搜索和对话式查询的增长要求内容更加口语化和直接"
+      ]
+    },
+    {
+      "channel": "DesignCourse",
+      "category": "设计",
+      "title": "2026 Frontend Development Crash Course - Cursor",
+      "url": "https://www.youtube.com/@DesignCourse",
+      "points": [
+        "Cursor IDE正在改变前端开发范式，AI辅助编码让设计师可以成为全栈开发者",
+        "课程涵盖导航栏、Hero区、三栏卡片、Logo轮播等实战组件的AI驱动开发",
+        "GSAP动画库与AI工具结合，实现复杂交互动效而无需手写大量代码",
+        "响应式设计通过AI提示词快速适配，从桌面到移动端一键优化",
+        "Figma到代码的工作流被AI重构，设计系统可以直接生成可维护的代码"
+      ]
+    },
+    {
+      "channel": "Tim Ferriss",
+      "category": "成长",
+      "title": "#843: Tactics and Strategies for a 2026 Reboot — Essentialism and Greg McKeown",
+      "url": "https://www.youtube.com/@timferriss",
+      "points": [
+        "Greg McKeown的Essentialism理念：不是做更多事，而是做对的事",
+        "2026年重启策略：用90天计划替代年度目标，降低执行阻力",
+        "识别'生命中1-3个能大幅简化生活的决定'，主动做减法",
+        "从Peter Drucker的启示：不要在一百个决定上纠结，当做一个决定来处理",
+        "建立'默认乐观'的社交圈，远离消耗能量的关系和比较心态"
+      ]
+    },
+    {
+      "channel": "Alex Garcia",
+      "category": "营销",
+      "title": "$100M of Brand Partnership Advice in 38 Minutes w/ Ryan Chen",
+      "url": "https://www.youtube.com/@MarketingExamined",
+      "points": [
+        "品牌合作的核心是价值对齐：找到与你受众重叠但产品互补的伙伴",
+        "Ryan Chen分享了$100M级品牌合作的关键：长期关系比一次性交易更有价值",
+        "创作者品牌的变现路径：从Affiliate到Sponsorship再到Equity（股权合作）",
+        "数据驱动的合作谈判：用受众画像、互动率、转化数据说话",
+        "2026年品牌方更看重'信任度'而非'粉丝量'，微影响者（Micro-influencer）价值上升"
+      ]
+    }
+  ],
+  "aiTips": [
+    "Vercel AI SDK v4（7月5-7日更新）：@ai-sdk/openai@4.0.8修复图片base64问题，@ai-sdk/anthropic@3.0.93优化thinking设置——如果你在用Vercel构建AI应用，记得升级",
+    "GitHub Trending AI项目Top 3：OpenClaw（36万⭐）、n8n（18万⭐）、Ollama（17万⭐）——本地AI部署和自动化工作流仍是2026年最活跃的方向",
+    "Google Gemini Omni（Google I/O 2026发布）：多模态实时推理能力大幅提升，AI Agent可以'看懂'屏幕内容并执行操作"
+  ],
+  "tools": [
+    "Cursor - AI原生IDE，前端开发者的生产力倍增器",
+    "Vercel AI SDK v4 - 构建AI应用的React/Next.js首选框架"
+  ]
+}

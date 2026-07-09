@@ -1,103 +1,137 @@
 # YouTube日报 - 频道配置
-# 5个不同类型，避免信息茧房
+# 扩展到20+频道，轮换使用，避免信息茧房
 
 channels:
-  # 1. 营销增长类
+  # === 营销增长类 ===
   - name: "Kallaway"
     handle: "@kallaway"
     url: "https://www.youtube.com/@kallaway"
     category: "营销增长"
-    language: "英文"
-    description: "前咨询顾问转型创作者，专注短视频策略、内容营销、增长黑客"
-    focus: "Short-form strategy, content marketing, growth hacking"
-    recent_topics: "AI工具应用、平台算法、内容变现"
+    priority: high
     
   - name: "Neil Patel"
     handle: "@NeilPatel"
     url: "https://www.youtube.com/@NeilPatel"
     category: "营销增长"
-    language: "英文"
-    description: "SEO与内容营销权威，数据驱动增长"
-    focus: "SEO, content marketing, data-driven growth"
-    recent_topics: "AI内容策略、SEO趋势、流量获取"
+    priority: medium
     
-  # 2. 设计创意类
+  - name: "Alex Garcia"
+    handle: "@AlexGarciaBuilds"
+    url: "https://www.youtube.com/@AlexGarciaBuilds"
+    category: "营销增长"
+    priority: high
+    
+  - name: "GaryVee"
+    handle: "@garyvee"
+    url: "https://www.youtube.com/@garyvee"
+    category: "营销增长"
+    priority: low
+    
+  - name: "Matt Diggity"
+    handle: "@MattDiggity"
+    url: "https://www.youtube.com/@MattDiggity"
+    category: "营销增长"
+    priority: medium
+    
+  # === 设计创意类 ===
+  - name: "Satori Graphics"
+    handle: "@SatoriGraphics"
+    url: "https://www.youtube.com/@SatoriGraphics"
+    category: "设计创意"
+    priority: high
+    
   - name: "The Futur"
     handle: "@thefutur"
     url: "https://www.youtube.com/@thefutur"
     category: "设计创意"
-    language: "英文"
-    description: "设计商业教育，品牌策略与创意经营"
-    focus: "Brand strategy, creative business, design thinking"
-    recent_topics: "品牌设计、创意商业、设计趋势"
+    priority: medium
     
   - name: "Mizko"
     handle: "@mizko"
     url: "https://www.youtube.com/@mizko"
     category: "设计创意"
-    language: "英文"
-    description: "设计师+开发者，专注AI设计工具与无代码"
-    focus: "AI design tools, no-code, product design"
-    recent_topics: "Vibe Design、AI生成设计、无代码工具"
+    priority: medium
     
-  # 3. 思考个人成长类
-  - name: "Dan Koe"
-    handle: "@DanKoe"
-    url: "https://www.youtube.com/@DanKoe"
-    category: "思考成长"
-    language: "英文"
-    description: "一人公司理念，创作者经济，数字游民"
-    focus: "Creator economy, one-person business, mindset"
-    recent_topics: "创作者经济、AI工具、个人品牌"
+  - name: "Flux Academy"
+    handle: "@FluxAcademy"
+    url: "https://www.youtube.com/@FluxAcademy"
+    category: "设计创意"
+    priority: medium
     
-  - name: "Ali Abdaal"
-    handle: "@aliabdaal"
-    url: "https://www.youtube.com/@aliabdaal"
-    category: "思考成长"
-    language: "英文"
-    description: "医生转型创作者，生产力与副业专家"
-    focus: "Productivity, side hustles, learning"
-    recent_topics: "AI生产力、副业策略、学习系统"
+  - name: "DesignCourse"
+    handle: "@DesignCourse"
+    url: "https://www.youtube.com/@DesignCourse"
+    category: "设计创意"
+    priority: low
     
-  # 4. AI技术类
+  # === AI技术类 ===
   - name: "Andrej Karpathy"
     handle: "@AndrejKarpathy"
     url: "https://www.youtube.com/@AndrejKarpathy"
     category: "AI技术"
-    language: "英文"
-    description: "前特斯拉AI总监，OpenAI创始人，AI教育"
-    focus: "AI education, deep learning, LLMs"
-    recent_topics: "GPT、神经网络、AI编程"
+    priority: high
     
   - name: "Fireship"
     handle: "@Fireship"
     url: "https://www.youtube.com/@Fireship"
     category: "AI技术"
-    language: "英文"
-    description: "快速技术教程，AI工具评测"
-    focus: "Quick tech tutorials, AI tools, web dev"
-    recent_topics: "Vibe Coding、AI开发工具、新框架"
+    priority: high
     
-  # 5. 品牌策略类
-  - name: "Alex Garcia (Marketing Examined)"
-    handle: "@AlexGarciaBuilds"
-    url: "https://www.youtube.com/@AlexGarciaBuilds"
-    category: "品牌策略"
-    language: "英文"
-    description: "品牌营销案例分析，增长策略"
-    focus: "Brand marketing, case studies, growth"
-    recent_topics: "品牌案例、营销策略、增长黑客"
+  - name: "Two Minute Papers"
+    handle: "@TwoMinutePapers"
+    url: "https://www.youtube.com/@TwoMinutePapers"
+    category: "AI技术"
+    priority: medium
     
-  - name: "GaryVee"
-    handle: "@garyvee"
-    url: "https://www.youtube.com/@garyvee"
+  - name: "AI Explained"
+    handle: "@ai-explained"
+    url: "https://www.youtube.com/@ai-explained"
+    category: "AI技术"
+    priority: medium
+    
+  # === 思考成长类 ===
+  - name: "Dan Koe"
+    handle: "@DanKoe"
+    url: "https://www.youtube.com/@DanKoe"
+    category: "思考成长"
+    priority: high
+    
+  - name: "Ali Abdaal"
+    handle: "@aliabdaal"
+    url: "https://www.youtube.com/@aliabdaal"
+    category: "思考成长"
+    priority: medium
+    
+  - name: "Mark Manson"
+    handle: "@markmanson"
+    url: "https://www.youtube.com/@markmanson"
+    category: "思考成长"
+    priority: low
+    
+  - name: "James Clear"
+    handle: "@JamesClear"
+    url: "https://www.youtube.com/@JamesClear"
+    category: "思考成长"
+    priority: low
+    
+  # === 品牌策略类 ===
+  - name: "Wolff Olins"
+    handle: "@wolffolins"
+    url: "https://www.youtube.com/@wolffolins"
     category: "品牌策略"
-    language: "英文"
-    description: "VaynerMedia CEO，社交媒体营销先驱"
-    focus: "Social media marketing, branding, entrepreneurship"
-    recent_topics: "短视频策略、品牌建设、平台趋势"
+    priority: medium
+    
+  - name: "Draplin Design Co."
+    handle: "@DraplinDesignCo"
+    url: "https://www.youtube.com/@DraplinDesignCo"
+    category: "品牌策略"
+    priority: low
 
-# 每日精选规则：
-# - 每天从这10个频道中精选5个不同频道的最新内容
+# === 每日精选规则 ===
+# - 每天从20个频道中精选3-5个
+# - 高优先级频道每3天最多出现1次
+# - 中优先级频道每5天最多出现1次  
+# - 低优先级频道每7天最多出现1次
 # - 确保涵盖至少3个不同类别
-# - 精选1个最推荐的视频作为"今日必看"
+# - 同一频道同一天最多出现1次
+# - 过去7天出现过的视频不再推荐

@@ -1,0 +1,37 @@
+{
+  "version": "1.0",
+  "description": "历史推荐记录，用于去重。每次生成日报前必须检查此文件，避免重复推荐。",
+  "jobs_seen": {
+    "companies": ["Philips", "Nestlé", "ABB", "LVMH", "SHEIN", "字节跳动", "TikTok", "ByteDance", "Scopely", "Christie's", "科赴", "Kenvue", "PepsiCo", "中驰股份", "上海吾界信息", "哈森股份", "领润创业", "上海蜜骐生物", "天络行", "林华医疗", "Roche", "Adidas", "L'Oreal", "Qualcomm", "Unilever", "Heineken", "Ventura Systems", "Atlas Copco", "Anker SOLIX", "eufy Appliances", "Bosch Digital", "Johnson & Johnson", "Johnson & Johnson", "Spotify", "H&M", "Electrolux", "IKEA", "Ericsson", "TotalEnergies", "Syngenta", "GSK", "Logitech", "Danone", "Air Liquide", "Pernod Ricard", "Kering", "Sanofi", "Decathlon", "Hermès", "AstraZeneca", "BAT", "Reckitt", "Nike", "Apple", "Coca-Cola", "Mondelez", "Kraft Heinz", "Google", "Amazon", "Hilti", "Shopee", "Canva", "Ferrero", "传音控股", "Lazada", "Shopee", "拼多多", "阿里巴巴", "美团", "腾讯", "小红书", "大疆DJI", "OPPO", "小米", "华为", "SHEIN", "安克创新", "Baseus", "UGREEN", "Booking.com", "DSM-Firmenich", "AkzoNobel", "NXP", "ASML", "Unilever", "Heineken", "Puma", "Bayer", "Merck", "Linde", "Beiersdorf", "Siemens", "Bosch", "SAP", "Adidas", "Swatch", "Richemont", "Logitech", "Novartis", "Roche", "Nestle", "ABB", "迪士尼影业", "大都会人寿", "ARC Group", "Triumph", "强生", "安视优", "HYPEBEAST", "lyf"],
+    "titles": ["Marketing Brand Manager", "Head of Marketing", "Senior Brand Manager", "Assistant Marketing Manager", "品牌经理", "品牌营销经理", "Senior Brand Manager - Personal Health", "International Marketing Manager", "Marketing Manager - Coffee", "Global Brand Marketing Manager", "Marketing Communications Manager", "品牌经理(偏海外)", "Senior Product Manager", "Manager Retail Marketing", "Business Marketing Manager", "Brand Manager - Dior Beauty", "渠道销售经理-国际化", "达人营销专家", "抖音搜索营销产品运营经理", "微信小店-产品运营-行业运营", "GTM Manager", "品牌运营专员", "海外社媒运营", "品牌策划", "PR Manager", "Senior Digital Marketing Manager", "Digital Marketing Specialist", "Assistant Digital Marketing Manager", "Creative Director", "Digital Marketing Manager"],
+    "last_7_days": ["2026-07-06", "2026-07-07", "2026-07-08"]
+  },
+  "videos_seen": {
+    "channels": ["Satori Graphics", "Fireship", "Dan Koe", "Alex Garcia", "GaryVee", "Neil Patel", "The Futur", "Mizko", "Ali Abdaal", "Andrej Karpathy", "Lex Fridman", "DesignCourse", "Tim Ferriss"],
+    "titles": [
+      "The ONLY Video To Learn Deeper Design Thinking",
+      "You have 3 years left before personal branding gets 10x harder",
+      "Google's AI endgame is here",
+      "Replit Agent 3 is wild",
+      "The Most Important Skill To Learn Right Now",
+      "2026 Design Trends",
+      "Newsletter增长复盘：从0到20万订阅的7位数媒体公司",
+      "How I'd build a one-person business (if I started over in 2026)",
+      "How To Become So Valuable AI Can Never Replace You",
+      "Who really invented the internet",
+      "7乐高积木框架：反向工程任何爆款视频",
+      "我测试了所有AI编程助手（2026版）",
+      "2026设计趋势：AI协作与数字粗粝美学",
+      "The 1 Skill Nobody Teaches",
+      "The Future Of Work (& The New High-Income Skill Stack)",
+      "工作的未来与新的高收入技能栈",
+      "如果2026年重新开始，我会如何构建一人公司",
+      "#490 – State of AI in 2026: LLMs, Coding, Scaling Laws, China, Agents, GPUs, AGI",
+      "Your Business is Invisible to AI (How To Fix it)",
+      "2026 Frontend Development Crash Course - Cursor",
+      "#843: Tactics and Strategies for a 2026 Reboot — Essentialism and Greg McKeown",
+      "$100M of Brand Partnership Advice in 38 Minutes w/ Ryan Chen"
+    ],
+    "last_7_days": ["2026-07-04", "2026-07-05", "2026-07-06", "2026-07-07", "2026-07-08"]
+  }
+}

@@ -1,0 +1,64 @@
+{
+  "date": "2026-07-09",
+  "theme": "Anthropic风暴：Claude Sonnet 5发布、出口限制解除与隐私争议",
+  "featured": {
+    "channel": "Anthropic",
+    "category": "AI",
+    "title": "Claude Sonnet 5 发布 + Claude Science 上线 + Fable 5 解除出口限制",
+    "url": "https://www.anthropic.com/news",
+    "summary": "Anthropic本周密集发布：Claude Sonnet 5号称智能体能力最强的中端模型；Claude Science面向科研人员；Claude Code Artifacts下放至Pro/Max用户。但争议同时爆发——Fable 5/Mythos 5解除出口限制的同时，Claude Code被曝内置加密混淆的用户检测机制。",
+    "takeaways": [
+      "Claude Sonnet 5：性能接近 Opus 4.8，价格更低，智能体能力最强",
+      "Claude Science：垂直科研AI工作台，对标学术写作和数据分析场景",
+      "Artifacts下放：Pro/Max用户可将终端对话实时转为可分享网页",
+      "Fable 5/Mythos 5：7月1日起解除美国出口限制，恢复全球访问",
+      "隐私争议：Claude Code自2.1.91版本内置用户检测+暗标指纹机制"
+    ],
+    "insight": "Anthropic正从'模型公司'进化为'三层产品栈'（模型+Agent+平台基础设施），但隐私争议可能削弱其'安全AI'的品牌定位。"
+  },
+  "channels": [
+    {
+      "channel": "Kallaway",
+      "category": "营销",
+      "title": "YouTube营销系统化方法：数据驱动替代灵感驱动",
+      "url": "https://www.youtube.com/@kallaway",
+      "points": [
+        "建立内容数据库：收集10-20个同领域账号，筛选异常值内容（表现超平均10倍）",
+        "CTR工程：标题用数字+好处、反常识、故事悬念、对比四种公式",
+        "缩略图原则：0-3个词、人脸+情绪、高对比度、单一视觉焦点",
+        "质量CTR概念：5% CTR + 70%留存率 > 12% CTR + 15秒跳出",
+        "长视频策略：长篇内容产生10倍观看量和5倍有意义评论"
+      ]
+    },
+    {
+      "channel": "Satori Graphics",
+      "category": "设计",
+      "title": "设计频道长期运营：12年1175个视频的复利效应",
+      "url": "https://www.youtube.com/@SatoriGraphics",
+      "points": [
+        "139万订阅、1175个视频、12年持续更新——复利的力量",
+        "内容覆盖 Hobby / Lifestyle / Technology / Knowledge 多领域",
+        "月增长率约5.5%，日均播放量2.3-4.0万",
+        "YouTube算法偏好长视频：长格式内容产生10倍观看量",
+        "从执行者到AI策展人：设计师角色正在转变"
+      ]
+    }
+  ],
+  "aiTips": [
+    "美团LongCat-2.0：业界首个在五万卡国产算力集群训练的万亿参数模型（1.6T参数），原生支持1M超长上下文，已跻身OpenRouter调用量前三",
+    "2026世界人工智能大会：7月17-20日上海，超300款AI产品首发，华为Atlas 950、MiniMax M3、阶跃Agent OS等重磅新品",
+    "GPT-5.6系列：Sol/Terra/Luna三档分级，API价格低于Claude旗舰，目前仅对'可信合作伙伴'开放"
+  ],
+  "tools": [
+    "Claude Code - Anthropic官方AI编程工具，Artifacts功能下放至Pro/Max",
+    "Claude Science - 面向科研人员的垂直AI工作台",
+    "Google Cloud Claude Apps Gateway - 自托管服务，集中管理Claude Code身份和策略"
+  ],
+  "jobs": [
+    "字节跳动 — 品牌营销-国际化内容社区（匹配10项）",
+    "字节跳动 — 东南亚品牌营销-国际电商（匹配9项）",
+    "Temu — TEMU跨境商家运营（匹配7项）",
+    "阿里巴巴 — 品牌出海营销专家-国际站（匹配6项）",
+    "小红书 — 商业市场策略传播（匹配5项）"
+  ]
+}
