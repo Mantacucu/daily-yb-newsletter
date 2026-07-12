@@ -1,0 +1,83 @@
+{
+  "date": "2026-07-11",
+  "theme": "效率革命：当AI速度遇上设计策略",
+  "featured": {
+    "channel": "Two Minute Papers",
+    "category": "AI",
+    "title": "DeepSeek's Absolutely Insane AI Speed Hack",
+    "url": "https://www.youtube.com/watch?v=1yBU41auQhw",
+    "summary": "DeepSeek发布了一项突破性的AI推理加速技术，通过推测解码（speculative decoding）让大语言模型在保持质量的同时实现数倍速度提升。视频中解析了这项名为DSpark的技术原理：用小模型快速生成草稿，再由大模型验证修正，形成高效的分层推理架构。",
+    "takeaways": [
+      "DeepSeek推出DSpark推理加速技术，通过大小模型协同实现数倍速度提升",
+      "核心原理是推测解码：小模型快速生成草稿，大模型验证并修正错误",
+      "需要匹配的草稿模型才能发挥效果，对端到端可控的模型栈更友好",
+      "OpenAI也在推进类似方向，行业正从'更大模型'转向'更聪明工程'",
+      "开源社区和企业部署将率先受益，大幅降低推理成本"
+    ],
+    "insight": "AI竞赛正在从单纯追求模型规模转向工程效率优化。DeepSeek的DSpark证明：有时候最大的技术突破不是训练更大的模型，而是让现有模型跑得更快、更省。对于品牌营销和出海从业者，这意味着AI工具的使用成本将持续下降，'人人可用AI'的时代正在加速到来。"
+  },
+  "channels": [
+    {
+      "channel": "Mark Manson",
+      "category": "成长",
+      "title": "The Confidence Lie That Changed Everything",
+      "url": "https://www.youtube.com/watch?v=FuPe6ZfrgBg",
+      "points": [
+        "拆穿'先有信心再行动'的流行谎言——信心来自行动而非感受",
+        "Norman Vincent Peale的积极思考运动如何误导了几代人",
+        "肯定语和自我激励仪式的心理学真相：它们往往适得其反",
+        "WOOP方法（心理对比+执行意图）比单纯可视化更有效",
+        "建立真正信心的唯一路径：从小行动开始积累成功经验"
+      ]
+    },
+    {
+      "channel": "Bring Your Own Laptop",
+      "category": "设计",
+      "title": "New Course: InDesign Essentials",
+      "url": "https://www.youtube.com/watch?v=qcTx6MpclUg",
+      "points": [
+        "InDesign入门课程发布，适合设计师系统学习排版与出版物设计",
+        "掌握母版页、段落样式、文本绕排等核心功能",
+        "从品牌手册到杂志排版的实际工作流演示",
+        "与Adobe Illustrator和Photoshop的协作技巧",
+        "适合想拓展印刷设计技能的设计师和内容创作者"
+      ]
+    },
+    {
+      "channel": "Flux Academy",
+      "category": "设计",
+      "title": "New Program: Web Strategy Master",
+      "url": "https://www.youtube.com/watch?v=rGWcJ2SuTLM",
+      "points": [
+        "新推出的网页策略大师课程，聚焦设计师的商业思维升级",
+        "从接单思维转向战略思维：如何为客户创造可衡量的商业价值",
+        "掌握定价策略、客户沟通和提案写作的核心框架",
+        "AI不会替代做这两件事的设计师：战略思考和客户关系",
+        "适合想从执行层升级到策略层的网页设计师"
+      ]
+    },
+    {
+      "channel": "Matt Diggity",
+      "category": "营销",
+      "title": "The Latest AI Search Loophole… Does It Actually Work?",
+      "url": "https://www.youtube.com/watch?v=fHuomy6gAOA",
+      "points": [
+        "实测最新的AI搜索排名漏洞，检验其真实效果与可持续性",
+        "Reddit在AI搜索中的权重变化及利用策略",
+        "内容质量仍然是长期排名的核心，捷径往往伴随风险",
+        "AI搜索算法更新的应对思路：从投机到价值创造",
+        "SEO从业者需要建立抗算法变化的流量护城河"
+      ]
+    }
+  ],
+  "aiTips": [
+    "Vercel AI SDK 6发布：Agents成为一等抽象，构建AI Agent应用更简单",
+    "Vercel Function运行时间扩展至30分钟，支持更长耗时的AI推理任务",
+    "Google Gemini 3.5 Flash发布，支持1M token超长上下文窗口",
+    "GitHub Trending：Ponytail(75,939⭐)项目值得关注，开源生态持续繁荣"
+  ],
+  "tools": [
+    "Vercel Passport：进入public beta，简化AI应用的身份验证流程",
+    "GitHub Copilot Agent Mode：AI编程助手进入Agent模式，可自主执行多步任务"
+  ]
+}
