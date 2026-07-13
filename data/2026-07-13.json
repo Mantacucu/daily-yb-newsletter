@@ -1,0 +1,99 @@
+{
+  "date": "2026-07-13",
+  "theme": "AI意识觉醒 + 设计思维深度拆解",
+  "featured": {
+    "channel": "Two Minute Papers",
+    "category": "AI",
+    "title": "Minecraft Was Missing One Brilliant Idea",
+    "url": "https://www.youtube.com/watch?v=Ae9q7KsRbuI",
+    "summary": "Two Minute Papers探讨了AI在Minecraft中的应用新思路，展示了AI如何通过一个巧妙的想法改变游戏体验。这个视频发布于8小时前，是最新的AI技术动态。",
+    "takeaways": [
+      "AI在游戏中的应用正在突破传统边界",
+      "一个简单但巧妙的思路可以彻底改变用户体验",
+      "Minecraft作为AI实验平台的潜力被重新发现",
+      "游戏AI与通用人工智能的交叉点越来越明显",
+      "关注AI在游戏领域的创新应用"
+    ],
+    "insight": "游戏一直是AI发展的试验田，从AlphaGo到Minecraft，AI正在学会在开放世界中创造而不仅仅是竞争。这对内容创作者意味着：AI辅助创作工具将变得越来越直观和强大。"
+  },
+  "channels": [
+    {
+      "channel": "Fireship",
+      "category": "AI",
+      "title": "AI consciousness research just got weird…",
+      "url": "https://www.youtube.com/watch?v=KGtko3y2RXQ",
+      "points": [
+        "AI意识研究进入新阶段，出现意想不到的方向",
+        "探讨AI是否可能发展出某种形式的意识",
+        "技术伦理问题再次成为焦点",
+        "对AI安全研究的影响深远",
+        "开发者需要关注AI意识研究的最新进展"
+      ]
+    },
+    {
+      "channel": "GaryVee",
+      "category": "营销",
+      "title": "Why You Should Create Multiple Social Media Accounts",
+      "url": "https://www.youtube.com/watch?v=iq5VjE31Eig",
+      "points": [
+        "多账号策略可以覆盖不同受众群体",
+        "每个平台需要不同的内容策略",
+        "分散风险，避免单一平台依赖",
+        "测试不同内容形式的效果",
+        "建立更全面的个人品牌矩阵"
+      ]
+    },
+    {
+      "channel": "Satori Graphics",
+      "category": "设计",
+      "title": "The ONLY Video To Learn Deeper Design Thinking (With Examples)",
+      "url": "https://www.youtube.com/watch?v=Fn0-wFrC_N8",
+      "points": [
+        "深入设计思维的核心方法论",
+        "通过实际案例学习设计思考过程",
+        "从表面美学转向深层问题解决",
+        "培养设计师的战略思维能力",
+        "将设计思维应用到非设计领域"
+      ]
+    },
+    {
+      "channel": "The Futur",
+      "category": "品牌",
+      "title": "Easy Way to Get Clients Without Ads or Cold DM's - FREE 2 HOUR MASTERCLASS",
+      "url": "https://www.youtube.com/watch?v=dOZkAqR_2lA",
+      "points": [
+        "不依赖广告和冷邮件的客户获取策略",
+        "建立个人品牌吸引客户主动上门",
+        "内容营销替代传统销售方式",
+        "长期关系建设比短期成交更重要",
+        "自由职业者和创业者的实用指南"
+      ]
+    },
+    {
+      "channel": "Lex Fridman",
+      "category": "成长",
+      "title": "The Rise and Fall of the Roman Empire and the Byzantine Empire | Lex Fridman Podcast #498",
+      "url": "https://www.youtube.com/watch?v=pv1TUJSEM2k",
+      "points": [
+        "从历史帝国的兴衰中汲取现代管理智慧",
+        "理解文明周期对商业和个人的启示",
+        "长期思维在快速变化时代的重要性",
+        "权力、制度与创新的历史教训",
+        "跨学科学习带来的独特视角"
+      ]
+    }
+  ],
+  "aiTips": [
+    "Claude Sonnet 5已发布，在编码、代理和专业工作方面提供前沿性能，值得尝试",
+    "Anthropic正在向公众征集关于AI的最难问题，并承诺透明展示解决过程——关注这个倡议可以获得AI伦理的前沿洞察",
+    "Claude Code从内部CLI发展为完整编码代理，其进化路径为AI产品化提供了宝贵案例",
+    "Claude Science作为面向科学家的AI工作台已上线，跨学科研究者可以关注",
+    "Fable 5重新部署并推出jailbreak严重程度评分框架，AI安全领域的重要进展"
+  ],
+  "tools": [
+    "Claude Sonnet 5 - Anthropic最新模型，编码和代理能力显著提升",
+    "Claude Code - 从CLI进化而来的AI编码代理",
+    "Claude Science - 面向科学研究者的AI工作台",
+    "Fable 5 - Anthropic的AI安全测试平台"
+  ]
+}
