@@ -888,6 +888,110 @@
         "Claude Science - 面向科学研究者的AI工作台",
         "Fable 5 - Anthropic的AI安全测试平台"
       ]
+    },
+    "2026-07-21": {
+      "date": "2026-07-21",
+      "theme": "⚠️ 网络受限 - 今日无法获取新视频",
+      "note": "生成环境网络受限，无法访问YouTube及外部网站。所有搜索工具（kimi_search、web_search、web_fetch、browser、curl）均不可用。以下为基于本地历史数据的回顾与推荐。",
+      "featured": {
+        "channel": "Alex Garcia",
+        "category": "营销增长",
+        "title": "Newsletter增长复盘：从0到20万订阅的7位数媒体公司",
+        "url": "https://youtube.com/@AlexGarciaBuilds",
+        "summary": "（历史推荐回顾 - 2026-07-07）Alex Garcia分享了如何将Newsletter从0做到20万订阅，并构建一个7位数收入的媒体公司。核心在于系统化的内容策略和社群运营。",
+        "takeaways": [
+          "Newsletter是构建深度受众关系的最佳渠道",
+          "从0到1的冷启动需要精准的利基定位",
+          "社群驱动增长比算法驱动更可持续",
+          "多元化收入流：广告+付费订阅+产品",
+          "内容质量 > 发布频率，但一致性是关键"
+        ],
+        "insight": "在AI内容泛滥的时代，Newsletter这种'慢媒体'反而更显珍贵——它建立在信任而非算法之上。"
+      },
+      "channels": [
+        {
+          "channel": "Kallaway",
+          "category": "营销增长",
+          "title": "You have 3 years left before personal branding gets 10x harder",
+          "url": "https://youtube.com/@kallaway",
+          "points": [
+            "个人品牌建设窗口期正在关闭",
+            "AI生成内容将淹没所有平台",
+            "早期建立信任资产的人将获得复利",
+            "现在是建立个人品牌的最后黄金期",
+            "行动建议：从今天开始，每周发布内容"
+          ]
+        },
+        {
+          "channel": "Satori Graphics",
+          "category": "设计创意",
+          "title": "2026 Design Trends",
+          "url": "https://youtube.com/@SatoriGraphics",
+          "points": [
+            "AI协作设计成为主流工作流",
+            "数字粗粝美学（Digital Brutalism）兴起",
+            "极端对比排版持续流行",
+            "设计师角色从执行者转向AI策展人",
+            "推荐工具：Midjourney v7、Google Stitch、Figma AI"
+          ]
+        },
+        {
+          "channel": "Dan Koe",
+          "category": "思考成长",
+          "title": "The Most Important Skill To Learn Right Now",
+          "url": "https://youtube.com/@DanKoe",
+          "points": [
+            "AI时代最重要的技能是'元学习'",
+            "学会如何学习比学会什么更重要",
+            "构建个人知识体系的方法",
+            "从消费者转向创造者的思维模式",
+            "持续迭代的个人成长系统"
+          ]
+        },
+        {
+          "channel": "Andrej Karpathy",
+          "category": "AI技术",
+          "title": "#490 – State of AI in 2026: LLMs, Coding, Scaling Laws, China, Agents, GPUs, AGI",
+          "url": "https://youtube.com/@AndrejKarpathy",
+          "points": [
+            "2026年AI发展全景回顾",
+            "大语言模型的Scaling Laws是否还有效",
+            "AI编程助手的最新进展",
+            "中国AI发展的独特路径",
+            "AGI的时间线和关键指标"
+          ]
+        },
+        {
+          "channel": "The Futur",
+          "category": "品牌策略",
+          "title": "$100M of Brand Partnership Advice in 38 Minutes w/ Ryan Chen",
+          "url": "https://youtube.com/@thefutur",
+          "points": [
+            "品牌合作的核心原则",
+            "从0到100M的品牌建设路径",
+            "如何筛选和谈判品牌合作",
+            "长期关系比一次性交易更有价值",
+            "创意与商业的平衡艺术"
+          ]
+        }
+      ],
+      "aiTips": [
+        "⚠️ 今日无法获取实时AI资讯 - 以下为历史回顾",
+        "Claude Sonnet 5在编码和代理任务上表现优异，是目前最强的编程助手之一",
+        "Vibe Coding（氛围编程）概念持续发酵，指用自然语言描述意图让AI完成代码",
+        "AI安全测试平台Fable 5推出jailbreak严重程度评分，值得关注",
+        "建议：在无法获取实时数据时，回顾经典内容往往比追逐热点更有价值"
+      ],
+      "tools": [
+        "Claude Sonnet 5 - Anthropic最新模型",
+        "Cursor - AI原生IDE，Vibe Coding首选",
+        "Google Stitch - AI辅助设计工具",
+        "Midjourney v7 - 图像生成",
+        "⚠️ 工具推荐基于历史数据，建议访问各官网获取最新版本信息"
+      ],
+      "network_status": "UNAVAILABLE",
+      "data_source": "HISTORY_ONLY",
+      "generated_at": "2026-07-21T05:30:00+05:30"
     }
   }
 }
